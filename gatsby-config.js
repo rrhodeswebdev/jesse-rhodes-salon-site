@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Jessica Rhodes | Stylist & Extension Specialist`,
+    description: `Jessica Rhodes is a stylist, extension master, and hair educator located in Concord, NC. Reach out if you want to book an appointment or need a consultation.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -24,7 +23,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: ``, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
