@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Jessica Rhodes | Stylist & Extension Specialist`,
-    description: `Jessica Rhodes is a stylist, extension master, and hair educator located in Concord, NC. Reach out if you want to book an appointment or need a consultation.`,
+    title: `Jesse Rhodes | Stylist & Extension Specialist`,
+    description: `Jesse Rhodes is a master stylist, advanced extension artist, and passionate hair educator located in Concord, NC. Reach out if you want to book an appointment or need a consultation.`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,11 +17,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Jesse Rhodes Website`,
+        short_name: `Jesse Rhodes`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#e0ddd7`,
+        theme_color: `#b18e72`,
         display: `minimal-ui`,
         icon: ``, // This path is relative to the root of the site.
       },
