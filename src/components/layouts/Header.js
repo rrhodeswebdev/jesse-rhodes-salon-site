@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
 `
 
 const Logo = styled.img`
-  max-width: 250px;
+  max-width: 150px;
 `
 
 const LinksWrapper = styled.nav`
