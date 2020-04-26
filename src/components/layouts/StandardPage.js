@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import GlobalStyles from "../styles/GlobalStyles"
+import Header from "./Header"
 import Footer from "./Footer"
 
 const StandardPageWrapper = styled.div`
@@ -18,6 +19,7 @@ const StandardPage = ({ children }) => {
   return (
     <StandardPageWrapper>
       <GlobalStyles />
+      <Header />
       <ContentWrapper>{children}</ContentWrapper>
       <Footer />
     </StandardPageWrapper>
