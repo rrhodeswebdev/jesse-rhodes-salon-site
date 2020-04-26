@@ -1,10 +1,11 @@
 import React from "react"
+import StandardPage from "../../components/layouts/StandardPage"
 
 const Education = () => {
   return (
-    <div>
+    <StandardPage>
       <h1>Education Page</h1>
-    </div>
+    </StandardPage>
   )
 }
 

@@ -1,10 +1,11 @@
 import React from "react"
+import StandardPage from "../components/layouts/StandardPage"
 
 const About = () => {
   return (
-    <div>
+    <StandardPage>
       <h1>About Page</h1>
-    </div>
+    </StandardPage>
   )
 }
 
