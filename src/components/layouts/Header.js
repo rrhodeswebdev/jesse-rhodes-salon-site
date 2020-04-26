@@ -33,6 +33,9 @@ const LinksWrapper = styled.nav`
       &:hover {
         color: #b18e72;
       }
+      &.active-link {
+        color: #b18e72;
+      }
     }
   }
 `
@@ -45,16 +48,24 @@ const Header = () => {
       </Link>
       <LinksWrapper>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/about" activeClassName="active-link">
+            About
+          </Link>
         </li>
         <li>
-          <Link to="/services">Services</Link>
+          <Link to="/services" activeClassName="active-link">
+            Services
+          </Link>
         </li>
         <li>
-          <Link to="/education">Education</Link>
+          <Link to="/education" activeClassName="active-link">
+            Education
+          </Link>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact" activeClassName="active-link">
+            Contact
+          </Link>
         </li>
       </LinksWrapper>
     </HeaderWrapper>
