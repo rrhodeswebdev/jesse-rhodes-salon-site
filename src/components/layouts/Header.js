@@ -40,7 +40,9 @@ const LinksWrapper = styled.nav`
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo src={logo} alt="Jesse Rhodes Logo" />
+      <Link to="/">
+        <Logo src={logo} alt="Jesse Rhodes Logo" />
+      </Link>
       <LinksWrapper>
         <li>
           <Link to="/about">About</Link>
