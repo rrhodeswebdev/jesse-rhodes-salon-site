@@ -47,10 +47,18 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <SocialWrapper>
-        <a href="https://facebook.com/jesserhodeshair" target="_blank">
+        <a
+          href="https://facebook.com/jesserhodeshair"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <SocialIcon icon={faFacebookSquare} size="2x" />
         </a>
-        <a href="https://instagram.com/jesserhodes_hair" target="_blank">
+        <a
+          href="https://instagram.com/jesserhodes_hair"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <SocialIcon icon={faInstagramSquare} size="2x" />
         </a>
       </SocialWrapper>
