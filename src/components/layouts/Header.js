@@ -1,5 +1,6 @@
-import React, { useState } from "react"
-import { Link } from "gatsby"
+import React, { useState, useEffect, useRef } from "react"
+import TransitionLink from "gatsby-plugin-transition-link"
+import { gsap } from "gsap"
 import styled from "styled-components"
 import logo from "../../images/jesserhodes-logo.png"
 
@@ -14,24 +15,15 @@ const Logo = styled.img`
   max-width: 200px;
 `
 
-const LinksWrapper = styled.nav`
-  background-color: rgba(26, 23, 19, 0.75);
-  height: 100vh;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-`
-
-const LinkContainer = styled.div`
+const LinkContainer = styled.nav`
   align-items: center;
-  background-color: #ffffff;
-  display: flex;
+  background-color: #e0ddd7;
+  display: none;
   flex-direction: column;
   height: 100vh;
   justify-content: center;
   position: absolute;
-  right: 0;
+  right: -500px;
   top: 0;
   width: 500px;
   li {
@@ -55,54 +47,154 @@ const LinkContainer = styled.div`
   }
 `
 
-const Links = () => {
+const Links = ({ state }) => {
+  const ref = useRef()
+
+  useEffect(() => {
+    if (state) {
+      gsap.to(ref.current, {
+        x: -500,
+        duration: 0.75,
+        ease: "power2.out",
+        display: "flex",
+      })
+    }
+
+    if (!state) {
+      gsap.to(ref.current, {
+        x: 500,
+        duration: 0.75,
+        ease: "power2.in",
+        display: "none",
+      })
+    }
+  }, [state])
+
   return (
-    <LinksWrapper>
-      <LinkContainer>
-        <li>
-          <Link to="/" activeClassName="active-link">
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/about" activeClassName="active-link">
-            About
-          </Link>
-        </li>
-        <li>
-          <Link to="/services" activeClassName="active-link">
-            Services
-          </Link>
-        </li>
-        <li>
-          <Link to="/education" activeClassName="active-link">
-            Education
-          </Link>
-        </li>
-        <li>
-          <Link to="/contact" activeClassName="active-link">
-            Contact
-          </Link>
-        </li>
-      </LinkContainer>
-    </LinksWrapper>
+    <LinkContainer ref={ref}>
+      <li>
+        <TransitionLink
+          to="/"
+          activeClassName="active-link"
+          exit={{
+            trigger: () =>
+              gsap.to(ref.current, {
+                x: 500,
+                duration: 0.75,
+                ease: "power2.in",
+                display: "none",
+              }),
+            length: 0.75,
+          }}
+          entry={{
+            delay: 0.75,
+          }}
+        >
+          Home
+        </TransitionLink>
+      </li>
+      <li>
+        <TransitionLink
+          to="/about"
+          activeClassName="active-link"
+          exit={{
+            trigger: () =>
+              gsap.to(ref.current, {
+                x: 500,
+                duration: 0.75,
+                ease: "power2.in",
+                display: "none",
+              }),
+            length: 0.75,
+          }}
+          entry={{
+            delay: 0.75,
+          }}
+        >
+          About
+        </TransitionLink>
+      </li>
+      <li>
+        <TransitionLink
+          to="/services"
+          activeClassName="active-link"
+          exit={{
+            trigger: () =>
+              gsap.to(ref.current, {
+                x: 500,
+                duration: 0.75,
+                ease: "power2.in",
+                display: "none",
+              }),
+            length: 0.75,
+          }}
+          entry={{
+            delay: 0.75,
+          }}
+        >
+          Services
+        </TransitionLink>
+      </li>
+      <li>
+        <TransitionLink
+          to="/education"
+          activeClassName="active-link"
+          exit={{
+            trigger: () =>
+              gsap.to(ref.current, {
+                x: 500,
+                duration: 0.75,
+                ease: "power2.in",
+                display: "none",
+              }),
+            length: 0.75,
+          }}
+          entry={{
+            delay: 0.75,
+          }}
+        >
+          Education
+        </TransitionLink>
+      </li>
+      <li>
+        <TransitionLink
+          to="/contact"
+          activeClassName="active-link"
+          exit={{
+            trigger: () =>
+              gsap.to(ref.current, {
+                x: 500,
+                duration: 0.75,
+                ease: "power2.in",
+                display: "none",
+              }),
+            length: 0.75,
+          }}
+          entry={{
+            delay: 0.75,
+          }}
+        >
+          Contact
+        </TransitionLink>
+      </li>
+    </LinkContainer>
   )
 }
 
 const Header = () => {
-  const [menuActive, setMenuActive] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const onBurgerClick = e => {
+  const onBurgerClick = () => {
     const burger = document.getElementsByClassName("hamburger")
     burger[0].classList.toggle("is-active")
-    setMenuActive(!menuActive)
+    setIsMenuOpen(!isMenuOpen)
   }
 
   return (
     <HeaderWrapper>
-      <Link to="/">
+      <TransitionLink to="/">
         <Logo src={logo} alt="Jesse Rhodes Logo" />
-      </Link>
+      </TransitionLink>
       <button
         className="hamburger hamburger--collapse"
         type="button"
@@ -112,7 +204,7 @@ const Header = () => {
           <span className="hamburger-inner"></span>
         </span>
       </button>
-      {menuActive && <Links />}
+      <Links state={isMenuOpen} update={onBurgerClick} />
     </HeaderWrapper>
   )
 }
