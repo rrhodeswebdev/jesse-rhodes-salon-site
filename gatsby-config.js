@@ -23,6 +23,8 @@ module.exports = {
         background_color: `#e0ddd7`,
         theme_color: `#b18e72`,
         display: `minimal-ui`,
+        icons: [],
+        include_favicon: false,
       },
     },
     {
