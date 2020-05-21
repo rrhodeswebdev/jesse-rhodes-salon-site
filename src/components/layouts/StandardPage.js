@@ -1,29 +1,34 @@
-import React from "react"
-import styled from "styled-components"
-import GlobalStyles from "../styles/GlobalStyles"
-import Header from "./Header"
-import Footer from "./Footer"
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import GlobalStyles from '../styles/GlobalStyles';
+import Header from './Header';
+import Footer from './Footer';
 
 const StandardPageWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-`
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+`;
 
 const ContentWrapper = styled.main`
-  flex: 1 0 auto;
-  padding: 20px 40px;
-`
+	flex: 1 0 auto;
+	padding: 20px 40px;
+`;
 
 const StandardPage = ({ children }) => {
-  return (
-    <StandardPageWrapper>
-      <GlobalStyles />
-      <Header />
-      <ContentWrapper>{children}</ContentWrapper>
-      <Footer />
-    </StandardPageWrapper>
-  )
-}
+	return (
+		<StandardPageWrapper>
+			<GlobalStyles />
+			<Header />
+			<ContentWrapper>{children}</ContentWrapper>
+			<Footer />
+		</StandardPageWrapper>
+	);
+};
 
-export default StandardPage
+StandardPage.propTypes = {
+	children: PropTypes.node.isRequired,
+};
+
+export default StandardPage;
