@@ -27,6 +27,7 @@ const LinkContainer = styled.nav`
 	right: -500px;
 	top: 0;
 	width: 500px;
+	z-index: 1;
 	li {
 		font-size: 42px;
 		font-weight: 300;

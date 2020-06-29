@@ -1,24 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const Container = styled.div`
+import Testimonial from './Testimonial';
+
+const Container = styled.section`
+	display: flex;
+	flex-direction: column;
 	padding: 40px;
 `;
 
-const TestimonialText = styled.p`
-	font-size: 18px;
-	font-weight: 300;
-	text-align: center;
-`;
+const TestimonialSlider = props => {
+	const { testimonials } = props;
 
-const TestimonialTextWrapper = styled.div`
-	outline: none;
-`;
-
-const TestimonialSlider = () => {
 	const settings = {
 		autoplay: true,
 		autoplaySpeed: 5000,
@@ -30,20 +27,23 @@ const TestimonialSlider = () => {
 		slidesToScroll: 1,
 		adaptiveHeight: true,
 	};
+
 	return (
 		<Container>
 			<Slider {...settings}>
-				<TestimonialTextWrapper>
-					<TestimonialText>Here is a testimonial</TestimonialText>
-				</TestimonialTextWrapper>
-				<TestimonialTextWrapper>
-					<TestimonialText>
-						Here is another testimonial
-					</TestimonialText>
-				</TestimonialTextWrapper>
+				{testimonials.map(testimonial => (
+					<Testimonial
+						key={testimonial.id}
+						quote={testimonial.text}
+					/>
+				))}
 			</Slider>
 		</Container>
 	);
+};
+
+TestimonialSlider.propTypes = {
+	testimonials: PropTypes.array.isRequired,
 };
 
 export default TestimonialSlider;
