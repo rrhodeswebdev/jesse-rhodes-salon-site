@@ -1,8 +1,10 @@
 import React from 'react';
+import styled from 'styled-components';
 import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
 import HeroImage from '../components/media/HeroImage';
 import TestimonialSlider from '../components/content/TestimonialSlider';
+import { Button } from '../components/elements/Button';
 
 const testimonials = [
 	{
@@ -25,6 +27,13 @@ const testimonials = [
 	},
 ];
 
+const ButtonContainer = styled.section`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 0;
+`;
+
 const IndexPage = () => (
 	<StandardPage>
 		<SEO title="Home" />
@@ -33,6 +42,10 @@ const IndexPage = () => (
 			alt="Hero Image"
 		/>
 		<TestimonialSlider testimonials={testimonials} />
+		<ButtonContainer>
+			<Button>Book Appointment</Button>
+			<Button>Book Education</Button>
+		</ButtonContainer>
 	</StandardPage>
 );
 
