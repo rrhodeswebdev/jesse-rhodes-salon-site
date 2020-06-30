@@ -25,7 +25,6 @@ const TestimonialSlider = props => {
 		speed: 500,
 		slidesToShow: 1,
 		slidesToScroll: 1,
-		adaptiveHeight: true,
 	};
 
 	return (
@@ -35,6 +34,7 @@ const TestimonialSlider = props => {
 					<Testimonial
 						key={testimonial.id}
 						quote={testimonial.text}
+						person={testimonial.person}
 					/>
 				))}
 			</Slider>
