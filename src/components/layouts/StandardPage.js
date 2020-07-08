@@ -13,7 +13,6 @@ const StandardPageWrapper = styled.div`
 
 const ContentWrapper = styled.main`
 	flex: 1 0 auto;
-	padding: 40px;
 `;
 
 const StandardPage = ({ children }) => {

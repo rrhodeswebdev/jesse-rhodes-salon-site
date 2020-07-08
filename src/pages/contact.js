@@ -11,6 +11,8 @@ const HeaderContainer = styled.section`
 	flex-direction: column;
 	max-width: 1200px;
 	margin: 0 auto;
+	padding: 0 40px;
+	box-sizing: border-box;
 `;
 
 const ColumnContainer = styled.section`
@@ -19,6 +21,8 @@ const ColumnContainer = styled.section`
 	flex-wrap: wrap;
 	margin: 40px auto;
 	max-width: 1200px;
+	padding: 0 40px;
+	box-sizing: border-box;
 `;
 
 const PageHeader = styled.h1`
