@@ -4,16 +4,7 @@ import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
 import { Divider } from '../components/elements/Divider';
 import ContactForm from '../components/content/ContactForm';
-
-const HeaderContainer = styled.section`
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 0 40px;
-	box-sizing: border-box;
-`;
+import SimplePageHeader from '../components/elements/SimplePageHeader';
 
 const ColumnContainer = styled.section`
 	display: flex;
@@ -23,13 +14,6 @@ const ColumnContainer = styled.section`
 	max-width: 1200px;
 	padding: 0 40px;
 	box-sizing: border-box;
-`;
-
-const PageHeader = styled.h1`
-	display: flex;
-	justify-content: center;
-	font-size: 42px;
-	font-weight: 300;
 `;
 
 const ContactHeader = styled.h2`
@@ -63,15 +47,12 @@ const Contact = () => {
 	return (
 		<StandardPage>
 			<SEO title="Contact" />
-			<HeaderContainer>
-				<PageHeader>Let&apos;s Connect</PageHeader>
-				<Divider width="100%" height="1px" />
-				<img
-					src="https://via.placeholder.com/1200x675.png/"
-					alt="contact image"
-					style={{ width: '100%', marginTop: '40px' }}
-				/>
-			</HeaderContainer>
+			<SimplePageHeader
+				text="Let's Connect"
+				image="https://via.placeholder.com/1200x675.png/"
+				imageAlt="Contact Us Image"
+				showImage={true}
+			/>
 			<ColumnContainer>
 				<Column width="40%" padding="40px 40px 0 0">
 					<ColGroup>

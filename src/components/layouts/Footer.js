@@ -32,6 +32,7 @@ const LegalWrapper = styled.div`
 	padding: 20px 40px;
 	span {
 		font-weight: 300;
+		font-size: 12px;
 		a {
 			color: #b18e72;
 			text-decoration: none;
@@ -65,7 +66,7 @@ const Footer = () => {
 			<LegalWrapper>
 				<span>
 					Copyright © {currentYear} | Made by{' '}
-					<a href="https://ryanrhodes.io">Ryan Rhodes IO</a>
+					<a href="https://ryanrhodes.io">Ryan Rhodes</a>
 				</span>
 			</LegalWrapper>
 		</FooterWrapper>
