@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import TransitionLink from 'gatsby-plugin-transition-link';
-import { gsap } from 'gsap';
+import React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import logo from '../../images/jesserhodes-logo.png';
 
@@ -18,201 +16,90 @@ const Logo = styled.img`
 
 const LinkContainer = styled.nav`
 	align-items: center;
-	background-color: #e0ddd7;
-	display: none;
-	flex-direction: column;
-	height: 100vh;
+	display: flex;
 	justify-content: center;
-	position: absolute;
-	right: -500px;
-	top: 0;
-	width: 500px;
-	z-index: 1;
-	li {
-		font-size: 42px;
-		font-weight: 300;
-		list-style: none;
-		padding: 20px;
-		a {
-			color: #1a1713;
-			text-decoration: none;
-			&:hover {
-				color: #b18e72;
-			}
-			&.active-link {
-				color: #b18e72;
-			}
+	height: 100%;
+`;
+
+const LinkList = styled.ul`
+	display: flex;
+	align-items: center;
+	margin: 0;
+	height: 100%;
+`;
+
+const LinkItem = styled.li`
+	font-size: 16px;
+	font-weight: 300;
+	text-transform: uppercase;
+	list-style: none;
+	display: flex;
+	padding: 0 20px;
+	height: 100%;
+	align-items: center;
+
+	a {
+		color: #1a1713;
+		text-decoration: none;
+		padding-bottom: 10px;
+
+		&:hover {
+			color: #b18e72;
+			border-bottom: 1px solid #b18e72;
+			box-sizing: border-box;
 		}
-	}
-	@media screen and (max-width: 768px) {
-		width: 100%;
+
+		&.active-link {
+			box-sizing: border-box;
+			color: #b18e72;
+			border-bottom: 1px solid #b18e72;
+		}
 	}
 `;
 
-const Links = ({ state }) => {
-	const ref = useRef();
-
-	useEffect(() => {
-		if (state) {
-			gsap.to(ref.current, {
-				x: -500,
-				duration: 0.75,
-				ease: 'power2.out',
-				display: 'flex',
-			});
-		}
-
-		if (!state) {
-			gsap.to(ref.current, {
-				x: 500,
-				duration: 0.75,
-				ease: 'power2.in',
-				display: 'none',
-			});
-		}
-	}, [state]);
-
+const Links = () => {
 	return (
-		<LinkContainer ref={ref}>
-			<li>
-				<TransitionLink
-					to="/"
-					activeClassName="active-link"
-					exit={{
-						trigger: () =>
-							gsap.to(ref.current, {
-								x: 500,
-								duration: 0.75,
-								ease: 'power2.in',
-								display: 'none',
-							}),
-						length: 0.75,
-					}}
-					entry={{
-						delay: 0.75,
-					}}
-				>
-					Home
-				</TransitionLink>
-			</li>
-			<li>
-				<TransitionLink
-					to="/about"
-					activeClassName="active-link"
-					exit={{
-						trigger: () =>
-							gsap.to(ref.current, {
-								x: 500,
-								duration: 0.75,
-								ease: 'power2.in',
-								display: 'none',
-							}),
-						length: 0.75,
-					}}
-					entry={{
-						delay: 0.75,
-					}}
-				>
-					About
-				</TransitionLink>
-			</li>
-			<li>
-				<TransitionLink
-					to="/services"
-					activeClassName="active-link"
-					exit={{
-						trigger: () =>
-							gsap.to(ref.current, {
-								x: 500,
-								duration: 0.75,
-								ease: 'power2.in',
-								display: 'none',
-							}),
-						length: 0.75,
-					}}
-					entry={{
-						delay: 0.75,
-					}}
-				>
-					Services
-				</TransitionLink>
-			</li>
-			<li>
-				<TransitionLink
-					to="/education"
-					activeClassName="active-link"
-					exit={{
-						trigger: () =>
-							gsap.to(ref.current, {
-								x: 500,
-								duration: 0.75,
-								ease: 'power2.in',
-								display: 'none',
-							}),
-						length: 0.75,
-					}}
-					entry={{
-						delay: 0.75,
-					}}
-				>
-					Education
-				</TransitionLink>
-			</li>
-			<li>
-				<TransitionLink
-					to="/contact"
-					activeClassName="active-link"
-					exit={{
-						trigger: () =>
-							gsap.to(ref.current, {
-								x: 500,
-								duration: 0.75,
-								ease: 'power2.in',
-								display: 'none',
-							}),
-						length: 0.75,
-					}}
-					entry={{
-						delay: 0.75,
-					}}
-				>
-					Contact
-				</TransitionLink>
-			</li>
+		<LinkContainer>
+			<LinkList>
+				<LinkItem>
+					<Link to="/" activeClassName="active-link">
+						Home
+					</Link>
+				</LinkItem>
+				<LinkItem>
+					<Link to="/about" activeClassName="active-link">
+						About
+					</Link>
+				</LinkItem>
+				<LinkItem>
+					<Link to="/services" activeClassName="active-link">
+						Services
+					</Link>
+				</LinkItem>
+				<LinkItem>
+					<Link to="/education" activeClassName="active-link">
+						Education
+					</Link>
+				</LinkItem>
+				<LinkItem>
+					<Link to="/contact" activeClassName="active-link">
+						Contact
+					</Link>
+				</LinkItem>
+			</LinkList>
 		</LinkContainer>
 	);
 };
 
 const Header = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-	const onBurgerClick = () => {
-		const burger = document.getElementsByClassName('hamburger');
-		burger[0].classList.toggle('is-active');
-		setIsMenuOpen(!isMenuOpen);
-	};
-
 	return (
 		<HeaderWrapper>
-			<TransitionLink to="/">
+			<Link to="/">
 				<Logo src={logo} alt="Jesse Rhodes Logo" />
-			</TransitionLink>
-			<button
-				className="hamburger hamburger--collapse"
-				type="button"
-				onClick={onBurgerClick}
-			>
-				<span className="hamburger-box">
-					<span className="hamburger-inner"></span>
-				</span>
-			</button>
-			<Links state={isMenuOpen} update={onBurgerClick} />
+			</Link>
+			<Links />
 		</HeaderWrapper>
 	);
-};
-
-Links.propTypes = {
-	state: PropTypes.bool.isRequired,
 };
 
 export default Header;
