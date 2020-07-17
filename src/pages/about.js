@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
 import SimplePageHeader from '../components/elements/SimplePageHeader';
 
@@ -42,6 +43,7 @@ const ImageContainer = styled.div`
 const About = () => {
 	return (
 		<StandardPage>
+			<SEO title="About" />
 			<SimplePageHeader
 				text="About Me"
 				image="https://via.placeholder.com/1200x675.png/"
