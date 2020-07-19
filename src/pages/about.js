@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
-import SimplePageHeader from '../components/elements/SimplePageHeader';
+import SimplePageHeader from '../components/content/SimplePageHeader';
 
 const Container = styled.section`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	box-sizing: border-box;
 	padding: 0 40px;
 	max-width: 1200px;
 	margin: 0 auto;
@@ -17,7 +16,6 @@ const Container = styled.section`
 const TextContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	box-sizing: border-box;
 	padding-left: 20px;
 	width: 60%;
 	padding-top: 40px;
@@ -28,13 +26,11 @@ const Paragraph = styled.p`
 	font-weight: 300;
 	margin: 0;
 	padding-bottom: 20px;
-	box-sizing: border-box;
 `;
 
 const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
-	box-sizing: border-box;
 	padding-right: 20px;
 	padding-top: 40px;
 	width: 40%;
@@ -44,12 +40,7 @@ const About = () => {
 	return (
 		<StandardPage>
 			<SEO title="About" />
-			<SimplePageHeader
-				text="About Me"
-				image="https://via.placeholder.com/1200x675.png/"
-				imageAlt="About Me Image"
-				showImage={false}
-			/>
+			<SimplePageHeader text="About Me" />
 			<Container>
 				<ImageContainer>
 					<img
