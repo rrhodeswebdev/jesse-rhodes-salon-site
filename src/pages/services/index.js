@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SEO from '../../components/seo';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
@@ -48,6 +49,7 @@ const CardsContainer = styled.section`
 const Services = () => {
 	return (
 		<StandardPage>
+			<SEO title="Services" />
 			<SimplePageHeader text="Services" />
 			<CardsContainer>
 				<ServiceCard title="Styling" image={cardImage3} />
