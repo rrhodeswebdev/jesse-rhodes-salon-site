@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { submitFormData } from '../../utils/forms';
 import FormSuccess from './FormSuccess';
+import { Button } from '../elements/Button';
 
 const Form = styled.form`
 	width: 100%;
@@ -27,7 +28,6 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-	box-sizing: border-box;
 	border: 1px solid #c8c2b9;
 	border-radius: 0;
 	outline: none;
@@ -66,23 +66,24 @@ const TextArea = styled.textarea`
 	}
 `;
 
-const Button = styled.button`
-	cursor: pointer;
-	padding: 10px;
-	font-weight: 300;
-	font-size: 18px;
-	text-transform: uppercase;
-	border: 1px solid #c8c2b9;
-	border-radius: 0;
-	background-color: #c8c2b9;
-	outline: none;
+// const Button = styled.button`
+// 	cursor: pointer;
+// 	padding: 10px;
+// 	font-weight: 300;
+// 	font-size: 18px;
+// 	text-transform: uppercase;
+// 	border: none;
+// 	border-radius: 0;
+// 	background-color: #1a1713;
+// 	outline: none;
+// 	color: #ffffff;
 
-	&:hover {
-		background-color: #b18e72;
-		color: white;
-		transition: 0.15s ease;
-	}
-`;
+// 	&:hover {
+// 		background-color: #b18e72;
+// 		color: white;
+// 		transition: 0.15s ease;
+// 	}
+// `;
 
 const ErrorText = styled.span`
 	font-size: 14px;
@@ -179,7 +180,9 @@ const ContactForm = () => {
 				)}
 			</Group>
 			<Group>
-				<Button type="submit">Submit</Button>
+				<Button type="submit" width="100%" margin="0">
+					Submit
+				</Button>
 			</Group>
 			<Group>
 				<FormText>

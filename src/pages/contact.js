@@ -4,7 +4,7 @@ import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
 import { Divider } from '../components/elements/Divider';
 import ContactForm from '../components/content/ContactForm';
-import SimplePageHeader from '../components/elements/SimplePageHeader';
+import SimplePageHeader from '../components/content/SimplePageHeader';
 
 const ColumnContainer = styled.section`
 	display: flex;
@@ -13,7 +13,6 @@ const ColumnContainer = styled.section`
 	margin: 40px auto;
 	max-width: 1200px;
 	padding: 0 40px;
-	box-sizing: border-box;
 `;
 
 const ContactHeader = styled.h2`
@@ -51,7 +50,6 @@ const Contact = () => {
 				text="Let's Connect"
 				image="https://via.placeholder.com/1200x675.png/"
 				imageAlt="Contact Us Image"
-				showImage={true}
 			/>
 			<ColumnContainer>
 				<Column width="40%" padding="40px 40px 0 0">

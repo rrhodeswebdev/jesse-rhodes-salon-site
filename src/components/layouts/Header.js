@@ -46,11 +46,9 @@ const LinkItem = styled.li`
 		&:hover {
 			color: #b18e72;
 			border-bottom: 1px solid #b18e72;
-			box-sizing: border-box;
 		}
 
 		&.active-link {
-			box-sizing: border-box;
 			color: #b18e72;
 			border-bottom: 1px solid #b18e72;
 		}
