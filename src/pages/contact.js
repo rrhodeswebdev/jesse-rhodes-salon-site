@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
 import { Divider } from '../components/elements/Divider';
-import ContactForm from '../components/content/ContactForm';
+import ContactForm from '../components/forms/ContactForm';
 import SimplePageHeader from '../components/content/SimplePageHeader';
+import HoursBlock from '../components/content/HoursBlock';
 
 const ColumnContainer = styled.section`
 	display: flex;
@@ -84,17 +85,7 @@ const Contact = () => {
 							Concord, NC 28025
 						</Link>
 					</ColText>
-					<ContactHeader>Hours</ContactHeader>
-					<Divider width="100%" height="1px" bg="#e0ddd7" />
-					<ColText>
-						Wednesday 10-8
-						<br />
-						Thursday 10-8
-						<br />
-						Friday 9-4
-						<br />
-						Saturday 9-3
-					</ColText>
+					<HoursBlock textAlign="left" dividerMargin="0" />
 				</Column>
 				<Column width="50%" padding="40px 0 0 40px">
 					<ContactForm />
