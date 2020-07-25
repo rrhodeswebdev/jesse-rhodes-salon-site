@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { submitFormData } from '../../utils/forms';
-import FormSuccess from './FormSuccess';
+import FormSuccess from '../content/FormSuccess';
 import { Button } from '../elements/Button';
 
 const Form = styled.form`
@@ -65,25 +65,6 @@ const TextArea = styled.textarea`
 		transition: background-color 5000s ease-in-out 0s;
 	}
 `;
-
-// const Button = styled.button`
-// 	cursor: pointer;
-// 	padding: 10px;
-// 	font-weight: 300;
-// 	font-size: 18px;
-// 	text-transform: uppercase;
-// 	border: none;
-// 	border-radius: 0;
-// 	background-color: #1a1713;
-// 	outline: none;
-// 	color: #ffffff;
-
-// 	&:hover {
-// 		background-color: #b18e72;
-// 		color: white;
-// 		transition: 0.15s ease;
-// 	}
-// `;
 
 const ErrorText = styled.span`
 	font-size: 14px;

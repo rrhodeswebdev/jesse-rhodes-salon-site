@@ -5,6 +5,7 @@ import StandardPage from '../components/layouts/StandardPage';
 import HeroImage from '../components/media/HeroImage';
 import TestimonialSlider from '../components/content/TestimonialSlider';
 import { Button } from '../components/elements/Button';
+import { Link } from 'gatsby';
 
 const testimonials = [
 	{
@@ -43,8 +44,10 @@ const IndexPage = () => (
 		/>
 		<TestimonialSlider testimonials={testimonials} />
 		<ButtonContainer>
-			<Button>Book Appointment</Button>
-			<Button>Book Education</Button>
+			<Link to="/booking/appointment">
+				<Button>Appointments</Button>
+			</Link>
+			<Button>Education</Button>
 		</ButtonContainer>
 	</StandardPage>
 );

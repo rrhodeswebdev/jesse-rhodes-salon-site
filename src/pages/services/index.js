@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../../components/seo';
+import { Link } from 'gatsby';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
@@ -58,7 +59,9 @@ const Services = () => {
 			</CardsContainer>
 			<TestimonialSlider testimonials={testimonials} />
 			<ButtonContainer>
-				<Button>Book Now</Button>
+				<Link to="/booking/appointment">
+					<Button>Book Now</Button>
+				</Link>
 			</ButtonContainer>
 		</StandardPage>
 	);

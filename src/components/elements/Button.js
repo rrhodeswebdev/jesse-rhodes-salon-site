@@ -16,6 +16,11 @@ export const Button = styled.button`
 	letter-spacing: 1px;
 	width: ${props => props.width && props.width};
 
+	a {
+		text-decoration: none;
+		color: #ffffff;
+	}
+
 	:hover {
 		background-color: #b18e72;
 		color: ${props => props.hoverColor && props.hoverColor};
