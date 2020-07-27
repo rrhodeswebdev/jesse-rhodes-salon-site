@@ -1,5 +1,7 @@
+//TODO: When a date is picked, fire onChange to trigger another function that handles the appropriate times available
+
 import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import styled from 'styled-components';
 import { Button } from '../elements/Button';
 import { submitFormData } from '../../utils/forms';
@@ -7,6 +9,9 @@ import FormSuccess from '../content/FormSuccess';
 import moment from 'moment';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
+import DatePicker from 'react-datepicker';
+
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Form = styled.form`
 	display: flex;
@@ -53,6 +58,16 @@ const Input = styled.input`
 	height: 42px;
 `;
 
+const CustomDatePicker = styled(DatePicker)`
+	border: 1px solid #e0ddd7;
+	width: 100%;
+	font-size: 16px;
+	font-weight: 300;
+	padding: 10px;
+	outline: none;
+	height: 42px;
+`;
+
 const Select = styled.select`
 	font-size: 16px;
 	font-weight: 300;
@@ -86,29 +101,6 @@ const FormText = styled.span`
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-const timeMap = {
-	3: {
-		openTime: 10,
-		closeTime: 19,
-	},
-	4: {
-		openTime: 10,
-		closeTime: 19,
-	},
-	5: {
-		openTime: 9,
-		closeTime: 15,
-	},
-	6: {
-		openTime: 9,
-		closeTime: 14,
-	},
-};
-
-const returnHour = time => {
-	return parseInt(time.split(':')[0]);
-};
-
 const schema = yup.object().shape({
 	firstname: yup.string().required('*Required field'),
 	lastname: yup.string().required('*Required field'),
@@ -121,37 +113,10 @@ const schema = yup.object().shape({
 		.matches(phoneRegExp, '*Phone number is not valid')
 		.required('*Required field'),
 	appointment_request_date: yup
-		.string()
-		.test('invalid-day', '*Please pick another day', value => {
-			const day = moment(value).day();
-
-			if (day === 0 || day === 1 || day === 2) {
-				return false;
-			}
-
-			return true;
-		})
+		.date('Must be a valid date')
 		.required('*Required field'),
 	appointment_request_time: yup
-		.string()
-		.test('invalid-time', '*Please pick another time', function (value) {
-			// const day = moment(yup.ref('appointment_request_date')).day();
-			const dayRef = this.resolve(yup.ref('appointment_request_date'));
-			const day = moment(dayRef).day();
-
-			if (day === 0 || day === 1 || day === 2) {
-				return false;
-			}
-
-			if (
-				returnHour(value) >= timeMap[day].openTime &&
-				returnHour(value) <= timeMap[day].closeTime
-			) {
-				return true;
-			}
-
-			return false;
-		})
+		.date('Must be a valid time')
 		.required('*Required field'),
 	appointment_request_service: yup.string().required('*Required field'),
 	message: yup.string().required('*Required field'),
@@ -159,22 +124,66 @@ const schema = yup.object().shape({
 
 const AppointmentForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, errors, reset } = useForm({
+	const { register, handleSubmit, errors, reset, control, watch } = useForm({
 		resolver: yupResolver(schema),
 	});
+
+	const selectedDate = watch('appointment_request_date');
+
 	const formId = '6336fa11-d394-4327-9735-6dfe287c716c';
 	const context = {
 		pageUri: 'https://jesserhodes.style/booking/appointment',
 		pageName: 'Appointment Request',
 	};
 
+	const setMinTime = () => {
+		if (
+			moment(selectedDate).day() === 3 ||
+			moment(selectedDate).day() === 4
+		) {
+			return selectedDate.setHours(10, 0);
+		} else if (
+			moment(selectedDate).day() === 5 ||
+			moment(selectedDate).day() === 6
+		) {
+			return selectedDate.setHours(9, 0);
+		} else {
+			return new Date().setHours();
+		}
+	};
+
+	const setMaxTime = () => {
+		if (
+			moment(selectedDate).day() === 3 ||
+			moment(selectedDate).day() === 4
+		) {
+			return selectedDate.setHours(19, 30);
+		} else if (moment(selectedDate).day() === 5) {
+			return selectedDate.setHours(15, 30);
+		} else if (moment(selectedDate).day() === 6) {
+			return selectedDate.setHours(14, 30);
+		} else {
+			return new Date().setHours();
+		}
+	};
+
+	const isWorkday = date => {
+		const day = date.getDay();
+		return day !== 0 && day !== 1 && day !== 2;
+	};
+
 	const onSubmit = data => {
 		data['appointment_request_time'] = moment(
-			data['appointment_request_time'],
-			'HH:mm'
+			data['appointment_request_time']
 		).format('h:mm A');
 
+		data['appointment_request_date'] = moment(
+			data['appointment_request_date']
+		).format('YYYY-MM-DD');
+
 		const formData = { ...data, appointment_request_status: 'pending' };
+
+		console.log(formData);
 
 		submitFormData(formData, formId, context);
 		reset();
@@ -212,10 +221,18 @@ const AppointmentForm = () => {
 			</InputGroup>
 			<InputGroup width="33.33%" marginRight="10px">
 				<Label>Date</Label>
-				<Input
-					type="date"
+				<Controller
 					name="appointment_request_date"
-					ref={register}
+					control={control}
+					render={({ value, onChange, onBlur }) => (
+						<CustomDatePicker
+							minDate={moment().toDate()}
+							filterDate={isWorkday}
+							onChange={onChange}
+							onBlur={onBlur}
+							selected={value}
+						/>
+					)}
 				/>
 				{errors.appointment_request_date && (
 					<ErrorText>
@@ -225,10 +242,23 @@ const AppointmentForm = () => {
 			</InputGroup>
 			<InputGroup width="33.33%" marginRight="10px" marginLeft="10px">
 				<Label>Time</Label>
-				<Input
-					type="time"
+				<Controller
 					name="appointment_request_time"
-					ref={register}
+					control={control}
+					render={({ value, onChange, onBlur }) => (
+						<CustomDatePicker
+							showTimeSelect
+							showTimeSelectOnly
+							timeIntervals={15}
+							timeCaption="Time"
+							dateFormat="h:mm aa"
+							minTime={setMinTime()}
+							maxTime={setMaxTime()}
+							onChange={onChange}
+							onBlur={onBlur}
+							selected={value}
+						/>
+					)}
 				/>
 				{errors.appointment_request_time && (
 					<ErrorText>
