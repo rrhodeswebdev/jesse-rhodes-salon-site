@@ -60,7 +60,7 @@ const Services = () => {
 			<TestimonialSlider testimonials={testimonials} />
 			<ButtonContainer>
 				<Link to="/booking/appointment">
-					<Button>Book Now</Button>
+					<Button>Appointments</Button>
 				</Link>
 			</ButtonContainer>
 		</StandardPage>
