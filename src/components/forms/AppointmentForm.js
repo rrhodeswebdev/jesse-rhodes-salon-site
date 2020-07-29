@@ -1,5 +1,3 @@
-//TODO: When a date is picked, fire onChange to trigger another function that handles the appropriate times available
-
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import styled from 'styled-components';
@@ -128,7 +126,7 @@ const AppointmentForm = () => {
 		resolver: yupResolver(schema),
 	});
 
-	const selectedDate = watch('appointment_request_date');
+	const selectedDate = watch('appointment_request_date') || new Date();
 
 	const formId = '6336fa11-d394-4327-9735-6dfe287c716c';
 	const context = {
@@ -142,13 +140,12 @@ const AppointmentForm = () => {
 			moment(selectedDate).day() === 4
 		) {
 			return selectedDate.setHours(10, 0);
-		} else if (
+		}
+		if (
 			moment(selectedDate).day() === 5 ||
 			moment(selectedDate).day() === 6
 		) {
 			return selectedDate.setHours(9, 0);
-		} else {
-			return new Date().setHours();
 		}
 	};
 
@@ -158,12 +155,12 @@ const AppointmentForm = () => {
 			moment(selectedDate).day() === 4
 		) {
 			return selectedDate.setHours(19, 30);
-		} else if (moment(selectedDate).day() === 5) {
+		}
+		if (moment(selectedDate).day() === 5) {
 			return selectedDate.setHours(15, 30);
-		} else if (moment(selectedDate).day() === 6) {
+		}
+		if (moment(selectedDate).day() === 6) {
 			return selectedDate.setHours(14, 30);
-		} else {
-			return new Date().setHours();
 		}
 	};
 
@@ -185,7 +182,7 @@ const AppointmentForm = () => {
 
 		console.log(formData);
 
-		submitFormData(formData, formId, context);
+		submitFormData(formData, formId, context).catch(e => console.log(e));
 		reset();
 		setSuccessMessage(
 			'Thank you for your appointment request. Please note this request is not a confirmed appointment. I will review your submission and be in to confirm within 48 hours.'
@@ -272,7 +269,7 @@ const AppointmentForm = () => {
 					name="appointment_request_service"
 					ref={register({ required: true })}
 				>
-					<option defaultValue></option>
+					<option defaultValue />
 					<option value="color">Color</option>
 					<option value="haircut">Haircut</option>
 					<option value="extensions">Extensions</option>
