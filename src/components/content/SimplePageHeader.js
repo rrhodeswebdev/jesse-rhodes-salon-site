@@ -8,7 +8,7 @@ const HeaderContainer = styled.section`
 	align-items: center;
 	flex-direction: column;
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 0 auto 40px auto;
 	padding: 0 40px;
 `;
 
