@@ -53,9 +53,21 @@ const Services = () => {
 			<SEO title="Services" />
 			<SimplePageHeader text="Services" />
 			<CardsContainer>
-				<ServiceCard title="Styling" image={cardImage3} />
-				<ServiceCard title="Color" image={cardImage2} />
-				<ServiceCard title="Extensions" image={cardImage3} />
+				<ServiceCard
+					title="Styling"
+					image={cardImage3}
+					link="/services/styling"
+				/>
+				<ServiceCard
+					title="Color"
+					image={cardImage2}
+					link="/services/color"
+				/>
+				<ServiceCard
+					title="Extensions"
+					image={cardImage3}
+					link="/services/extensions"
+				/>
 			</CardsContainer>
 			<TestimonialSlider testimonials={testimonials} />
 			<ButtonContainer>

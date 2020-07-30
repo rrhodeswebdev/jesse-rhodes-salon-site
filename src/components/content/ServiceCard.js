@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Button } from '../elements/Button';
 
@@ -39,7 +40,7 @@ const CardTitle = styled.span`
 `;
 
 const ServiceCard = props => {
-	const { title, image } = props;
+	const { title, image, link } = props;
 	return (
 		<Card>
 			<CardTitle>{title}</CardTitle>
@@ -47,16 +48,18 @@ const ServiceCard = props => {
 				<ImgOffsetBorder />
 				<CardImg src={image} />
 			</ImgContainer>
-			<Button
-				margin="40px 0 0 0"
-				width="100%"
-				border="1px solid #b18e72"
-				bgColor="transparent"
-				color="#b18e72"
-				hoverColor="#ffffff"
-			>
-				See Pricing
-			</Button>
+			<Link to={link}>
+				<Button
+					margin="40px 0 0 0"
+					width="100%"
+					border="1px solid #b18e72"
+					bgColor="transparent"
+					color="#b18e72"
+					hoverColor="#ffffff"
+				>
+					See Pricing
+				</Button>
+			</Link>
 		</Card>
 	);
 };
@@ -64,6 +67,7 @@ const ServiceCard = props => {
 ServiceCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	image: PropTypes.string.isRequired,
+	link: PropTypes.string.isRequired,
 };
 
 export default ServiceCard;
