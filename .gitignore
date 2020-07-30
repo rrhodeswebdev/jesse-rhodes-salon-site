@@ -1,3 +1,5 @@
+.idea/
+
 # Logs
 logs
 *.log
@@ -67,5 +69,4 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-.idea
+.idea/codeStyles/Project.xml
