@@ -14,6 +14,7 @@ const Card = styled.div`
 
 const ImgContainer = styled.div`
 	position: relative;
+	margin-bottom: 40px;
 `;
 
 const CardImg = styled.img`
@@ -50,8 +51,8 @@ const ServiceCard = props => {
 			</ImgContainer>
 			<Link to={link}>
 				<Button
-					margin="40px 0 0 0"
-					width="100%"
+					margin="0"
+					width="106%"
 					border="1px solid #b18e72"
 					bgColor="transparent"
 					color="#b18e72"
