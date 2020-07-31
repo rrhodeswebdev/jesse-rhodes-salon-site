@@ -21,6 +21,14 @@ const Title = styled.h2`
 	padding-bottom: 20px;
 `;
 
+const SubTitle = styled.span`
+	font-size: 18px;
+	font-weight: 300;
+	font-style: italic;
+	text-align: center;
+	padding-bottom: 20px;
+`;
+
 const Price = styled.p`
 	font-size: 28px;
 	font-weight: 300;
@@ -46,19 +54,21 @@ const Description = styled.p`
 `;
 
 const ServiceInfoBlock = props => {
-	const { title, price, time, description } = props;
+	const { title, price, time, description, subTitle } = props;
 	return (
 		<Container>
 			<Title>{title}</Title>
+			{subTitle && <SubTitle>{subTitle}</SubTitle>}
 			<Price>{price}</Price>
 			<Description>{description}</Description>
-			<Time>Est time: {time}</Time>
+			{time && <Time>Est time: {time}</Time>}
 		</Container>
 	);
 };
 
 ServiceInfoBlock.propTypes = {
 	title: PropTypes.string.isRequired,
+	subTitle: PropTypes.string,
 	price: PropTypes.string.isRequired,
 	time: PropTypes.string,
 	description: PropTypes.string.isRequired,
