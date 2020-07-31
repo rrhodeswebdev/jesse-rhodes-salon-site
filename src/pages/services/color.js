@@ -83,7 +83,7 @@ const Disclaimer = styled.span`
 	margin-bottom: 40px;
 `;
 
-const Styling = () => {
+const Color = () => {
 	return (
 		<StandardPage>
 			<SEO title="Color Services" />
@@ -113,4 +113,4 @@ const Styling = () => {
 	);
 };
 
-export default Styling;
+export default Color;
