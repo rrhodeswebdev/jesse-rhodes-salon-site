@@ -37,7 +37,7 @@ const extensionBeadedData = [
 	{
 		id: 4,
 		title: 'The Extra Full',
-		subTitle: 'Hair from the Hair Gods, long, full, and  luscious',
+		subTitle: 'Hair from the hair gods, long, full, and  luscious',
 		price: '$1800',
 		description:
 			'Includes 12 wefts, 3 row installation, custom color and sculpting, heat styling',
@@ -63,22 +63,19 @@ const extensionTapeData = [
 		id: 7,
 		title: '14-18”',
 		price: '$18/piece',
-		description:
-			'Includes hair extensions, installation, and custom sculpting.',
+		description: 'Includes hair extensions and installation.',
 	},
 	{
 		id: 8,
 		title: '20-22”',
 		price: '$22/piece',
-		description:
-			'Includes hair extensions, installation, and custom sculpting.',
+		description: 'Includes hair extensions and installation.',
 	},
 	{
 		id: 9,
 		title: '24”',
 		price: '$24/piece',
-		description:
-			'Includes hair extensions, installation, and custom sculpting.',
+		description: 'Includes hair extensions and installation.',
 	},
 	{
 		id: 10,
@@ -89,6 +86,12 @@ const extensionTapeData = [
 	},
 	{
 		id: 11,
+		title: 'Sculpting',
+		price: '$50',
+		description: 'Blending and styling extensions.',
+	},
+	{
+		id: 12,
 		title: 'Removal',
 		price: '$150',
 		description:

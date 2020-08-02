@@ -6,6 +6,7 @@ import HeroImage from '../components/media/HeroImage';
 import TestimonialSlider from '../components/content/TestimonialSlider';
 import { Button } from '../components/elements/Button';
 import { Link } from 'gatsby';
+import HomePageBannerImg from '../images/home-page-header.jpg';
 
 const testimonials = [
 	{
@@ -38,10 +39,7 @@ const ButtonContainer = styled.section`
 const IndexPage = () => (
 	<StandardPage>
 		<SEO title="Home" />
-		<HeroImage
-			src="https://via.placeholder.com/1200x500"
-			alt="Hero Image"
-		/>
+		<HeroImage src={HomePageBannerImg} alt="Hero Image" />
 		<TestimonialSlider testimonials={testimonials} />
 		<ButtonContainer>
 			<Link to="/booking/appointment">
