@@ -8,6 +8,9 @@ const Container = styled.section`
 
 const Image = styled.img`
 	width: 100%;
+	height: 75vh;
+	object-fit: cover;
+	object-position: center;
 `;
 
 const HeroImage = props => {

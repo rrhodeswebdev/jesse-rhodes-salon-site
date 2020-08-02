@@ -13,7 +13,7 @@ const stylingData = [
 		title: 'Haircut',
 		price: '$40+',
 		description:
-			'Includes a luxury shampoo, custom haircut, blowdry and head finishing.',
+			'Includes a luxury shampoo, custom haircut, blowdry and heat finishing.',
 		time: '45 minutes',
 	},
 	{
@@ -33,7 +33,7 @@ const stylingData = [
 	{
 		id: 4,
 		title: 'Smoothing System',
-		price: '$100/oz',
+		price: '$125/oz',
 		description:
 			'Rejuvenol smoothing system to help improve manageability, shine, and condition hair.',
 		time: '60 minutes',
