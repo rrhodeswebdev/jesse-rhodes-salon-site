@@ -10,7 +10,9 @@ import Testimonial from './Testimonial';
 const Container = styled.section`
 	display: flex;
 	flex-direction: column;
-	padding: 40px;
+	padding: 0 40px;
+	max-width: 1200px;
+	margin: 0 auto;
 `;
 
 const TestimonialSlider = props => {
