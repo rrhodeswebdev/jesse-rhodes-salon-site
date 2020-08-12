@@ -8,7 +8,6 @@ const Card = styled.div`
 	width: 300px;
 	display: flex;
 	flex-direction: column;
-	margin-top: 40px;
 	padding: 10px;
 `;
 
@@ -41,7 +40,7 @@ const CardTitle = styled.span`
 `;
 
 const ServiceCard = props => {
-	const { title, image, link } = props;
+	const { title, image, link, text } = props;
 	return (
 		<Card>
 			<CardTitle>{title}</CardTitle>
@@ -58,7 +57,7 @@ const ServiceCard = props => {
 					color="#b18e72"
 					hoverColor="#ffffff"
 				>
-					See Pricing
+					{text}
 				</Button>
 			</Link>
 		</Card>
@@ -69,6 +68,7 @@ ServiceCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	image: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired,
+	text: PropTypes.string.isRequired,
 };
 
 export default ServiceCard;

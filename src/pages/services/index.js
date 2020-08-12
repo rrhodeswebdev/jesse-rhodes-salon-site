@@ -42,7 +42,7 @@ const CardsContainer = styled.section`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	margin: 0 auto;
+	margin: 0 auto 40px;
 	max-width: 1200px;
 	padding: 0 40px;
 `;
@@ -57,16 +57,19 @@ const Services = () => {
 					title="Styling"
 					image={cardImage3}
 					link="/services/styling"
+					text="See Pricing"
 				/>
 				<ServiceCard
 					title="Color"
 					image={cardImage2}
 					link="/services/color"
+					text="See Pricing"
 				/>
 				<ServiceCard
 					title="Extensions"
 					image={cardImage3}
 					link="/services/extensions"
+					text="See Pricing"
 				/>
 			</CardsContainer>
 			<TestimonialSlider testimonials={testimonials} />

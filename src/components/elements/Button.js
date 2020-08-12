@@ -22,7 +22,8 @@ export const Button = styled.button`
 	}
 
 	:hover {
-		background-color: #b18e72;
+		background-color: ${props =>
+			props.hoverBgColor ? props.hoverBgColor : '#b18e72'};
 		color: ${props => props.hoverColor && props.hoverColor};
 	}
 `;
