@@ -45,7 +45,9 @@ const IndexPage = () => (
 			<Link to="/booking/appointment">
 				<Button>Appointments</Button>
 			</Link>
-			<Button>Classes</Button>
+			<Link to="/education/laced">
+				<Button>Classes</Button>
+			</Link>
 		</ButtonContainer>
 	</StandardPage>
 );

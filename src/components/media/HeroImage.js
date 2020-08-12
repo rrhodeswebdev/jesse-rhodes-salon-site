@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Container = styled.section`
+	margin-bottom: 40px;
 	width: 100%;
 `;
 

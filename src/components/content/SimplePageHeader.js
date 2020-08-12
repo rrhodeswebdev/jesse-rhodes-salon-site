@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Divider } from '../elements/Divider';
 
-const HeaderContainer = styled.section`
+const HeaderContainer = styled.div`
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	max-width: 1200px;
-	margin: 0 auto 40px auto;
+	margin: 0 auto 40px;
 	padding: 0 40px;
 `;
 
