@@ -1,12 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../../components/seo';
-import { Link } from 'gatsby';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
 import ServiceCard from '../../components/content/ServiceCard';
-import { Button } from '../../components/elements/Button';
 import cardImage2 from '../../images/IMG_1726.jpg';
 import cardImage3 from '../../images/IMG_1727.jpg';
 
@@ -24,13 +22,6 @@ const testimonials = [
 		person: 'Ashley Irizarry',
 	},
 ];
-
-const ButtonContainer = styled.section`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 40px 0;
-`;
 
 const CardsContainer = styled.section`
 	display: flex;
