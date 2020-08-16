@@ -180,8 +180,6 @@ const AppointmentForm = () => {
 
 		const formData = { ...data, appointment_request_status: 'pending' };
 
-		console.log(formData);
-
 		submitFormData(formData, formId, context).catch(e => console.log(e));
 		reset();
 		setSuccessMessage(
