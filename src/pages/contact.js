@@ -6,6 +6,7 @@ import { Divider } from '../components/elements/Divider';
 import ContactForm from '../components/forms/ContactForm';
 import SimplePageHeader from '../components/content/SimplePageHeader';
 import HoursBlock from '../components/content/HoursBlock';
+import ContactHeaderImg from '../images/contact-header.jpg';
 
 const ColumnContainer = styled.section`
 	display: flex;
@@ -49,7 +50,7 @@ const Contact = () => {
 			<SEO title="Contact" />
 			<SimplePageHeader
 				text="Let's Connect"
-				image="https://via.placeholder.com/1200x675.png/"
+				image={ContactHeaderImg}
 				imageAlt="Contact Us Image"
 			/>
 			<ColumnContainer>
