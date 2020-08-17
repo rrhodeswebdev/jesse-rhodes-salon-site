@@ -5,6 +5,9 @@ import SEO from '../../components/seo';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ClassCard from '../../components/content/ClassCard';
 import { Button } from '../../components/elements/Button';
+import LacedHeaderImg1 from '../../images/laced-header-1.jpg';
+import LacedHeaderImg2 from '../../images/laced-header-2.jpg';
+import LacedHeaderImg3 from '../../images/laced-header-3.jpg';
 
 const TextGroup = styled.div`
 	display: flex;
@@ -91,36 +94,32 @@ const Laced = () => {
 			<SimplePageHeader text="Laced Hair Academy" />
 			<TextGroup>
 				<Text>
-					As a Laced Hair Educator, I enjoy traveling to salons all
-					over the US to teach stylists the art of hair extensions.
-					Laced Hair Extensions proudly offers six unique extension
-					methods (keratin bond, i-tip, tape-ins, clip ins, hand tied
-					wefts, and machine sewn wefts) to be able to customize and
-					serve your client’s individual needs. Extensions are not a
-					“one-size fits all” service!
+					As a Laced Hair Educator, I enjoy traveling to salons all over the US
+					to teach stylists the art of hair extensions. Laced Hair Extensions
+					proudly offers six unique extension methods (keratin bond, i-tip,
+					tape-ins, clip ins, hand tied wefts, and machine sewn wefts) to be
+					able to customize and serve your client’s individual needs. Extensions
+					are not a “one-size fits all” service!
 				</Text>
 				<Text>
-					In any Laced Academy training course, you can expect class
-					sizes to remain small. This ensures each attendee is able to
-					ask questions and receive one-on-one instruction and
-					critique from their Laced Educator. My goal as an educator
-					is to teach the fundamentals of proper extension
-					installation, removal, and blending techniques so stylists
-					are able to incorporate this luxury service into their
-					service menus.
+					In any Laced Academy training course, you can expect class sizes to
+					remain small. This ensures each attendee is able to ask questions and
+					receive one-on-one instruction and critique from their Laced Educator.
+					My goal as an educator is to teach the fundamentals of proper
+					extension installation, removal, and blending techniques so stylists
+					are able to incorporate this luxury service into their service menus.
 				</Text>
 				<Text>
-					Check out the upcoming Laced Academy line-up to sign up for
-					a class near you! Don’t see your city in the line-up? No
-					worries! We are always looking for host salons all over the
-					country! Send me a message and let’s get your salon
-					scheduled for a certification class!
+					Check out the upcoming Laced Academy line-up to sign up for a class
+					near you! Don’t see your city in the line-up? No worries! We are
+					always looking for host salons all over the country! Send me a message
+					and let’s get your salon scheduled for a certification class!
 				</Text>
 			</TextGroup>
 			<ImageGroup>
-				<Image src="https://via.placeholder.com/300" />
-				<Image src="https://via.placeholder.com/300" />
-				<Image src="https://via.placeholder.com/300" />
+				<Image src={LacedHeaderImg1} />
+				<Image src={LacedHeaderImg2} />
+				<Image src={LacedHeaderImg3} />
 			</ImageGroup>
 			<ClassCardGroup>
 				<H2>Upcoming classes</H2>

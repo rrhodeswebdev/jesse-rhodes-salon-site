@@ -5,8 +5,8 @@ import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
 import ServiceCard from '../../components/content/ServiceCard';
-import cardImage2 from '../../images/IMG_1726.jpg';
-import cardImage3 from '../../images/IMG_1727.jpg';
+import LacedEducationImg from '../../images/laced-education.jpg';
+import MentorEducationImg from '../../images/mentor-education.jpg';
 
 const testimonials = [
 	{
@@ -40,13 +40,13 @@ const Education = () => {
 			<CardsContainer>
 				<ServiceCard
 					title="Laced Hair Academy"
-					image={cardImage3}
+					image={LacedEducationImg}
 					link="/education/laced"
 					text="More Information"
 				/>
 				<ServiceCard
 					title="Salon Mentorship"
-					image={cardImage2}
+					image={MentorEducationImg}
 					link="/education/mentor"
 					text="More Information"
 				/>
