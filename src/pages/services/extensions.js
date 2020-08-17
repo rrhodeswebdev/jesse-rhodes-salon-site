@@ -6,6 +6,7 @@ import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ServiceInfoBlock from '../../components/content/ServiceInfoBlock';
 import { Button } from '../../components/elements/Button';
+import ExtensionHeaderImg from '../../images/extension-header.jpg';
 
 const extensionData = [
 	{
@@ -123,10 +124,7 @@ const Extensions = () => {
 	return (
 		<StandardPage>
 			<SEO title="Extensions Services" />
-			<SimplePageHeader
-				text="Extensions"
-				image="https://via.placeholder.com/1200x675.png"
-			/>
+			<SimplePageHeader text="Extensions" image={ExtensionHeaderImg} />
 			<MainContainer>
 				{extensionData.map(service => (
 					<ServiceInfoBlock

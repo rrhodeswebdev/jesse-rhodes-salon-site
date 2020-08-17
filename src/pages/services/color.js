@@ -6,6 +6,7 @@ import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ServiceInfoBlock from '../../components/content/ServiceInfoBlock';
 import { Button } from '../../components/elements/Button';
+import ColorHeaderImg from '../../images/color-header.jpg';
 
 const stylingData = [
 	{
@@ -87,10 +88,7 @@ const Color = () => {
 	return (
 		<StandardPage>
 			<SEO title="Color Services" />
-			<SimplePageHeader
-				text="Color"
-				image="https://via.placeholder.com/1200x675.png"
-			/>
+			<SimplePageHeader text="Color" image={ColorHeaderImg} />
 			<MainContainer>
 				{stylingData.map(style => (
 					<ServiceInfoBlock
@@ -102,8 +100,8 @@ const Color = () => {
 					/>
 				))}
 				<Disclaimer>
-					*Additional time may result in additional charges to all
-					services listed above
+					*Additional time may result in additional charges to all services
+					listed above
 				</Disclaimer>
 				<Link to="/booking/appointment">
 					<Button>Appointments</Button>
