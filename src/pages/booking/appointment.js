@@ -9,7 +9,7 @@ import AppointmentForm from '../../components/forms/AppointmentForm';
 const TextWrapper = styled.section`
 	display: flex;
 	justify-content: center;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	max-width: 800px;
 	padding: 40px;
@@ -27,11 +27,10 @@ const appointment = () => {
 			<SimplePageHeader text="Request Appointment" />
 			<TextWrapper>
 				<p>
-					Thanks so much for your interest in booking an appointment
-					with me! Please fill out the form below and let me know
-					which service/s you are interested in! I will be in touch
-					soon to confirm your appointment. I look forward to seeing
-					you soon!
+					Thanks so much for your interest in booking an appointment with me!
+					Please fill out the form below and let me know which service/s you are
+					interested in! I will be in touch soon to confirm your appointment. I
+					look forward to seeing you soon!
 				</p>
 			</TextWrapper>
 			<AppointmentForm />

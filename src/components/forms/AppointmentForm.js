@@ -41,7 +41,7 @@ const InputGroup = styled.div`
 `;
 
 const Label = styled.label`
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	padding-bottom: 5px;
 `;
@@ -49,7 +49,7 @@ const Label = styled.label`
 const Input = styled.input`
 	border: 1px solid #e0ddd7;
 	width: 100%;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	padding: 10px;
 	outline: none;
@@ -59,7 +59,7 @@ const Input = styled.input`
 const CustomDatePicker = styled(DatePicker)`
 	border: 1px solid #e0ddd7;
 	width: 100%;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	padding: 10px;
 	outline: none;
@@ -67,7 +67,7 @@ const CustomDatePicker = styled(DatePicker)`
 `;
 
 const Select = styled.select`
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	border: 1px solid #e0ddd7;
 	outline: none;
@@ -80,7 +80,7 @@ const TextArea = styled.textarea`
 	border: 1px solid #e0ddd7;
 	outline: none;
 	padding: 10px;
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 `;
 
@@ -135,25 +135,16 @@ const AppointmentForm = () => {
 	};
 
 	const setMinTime = () => {
-		if (
-			moment(selectedDate).day() === 3 ||
-			moment(selectedDate).day() === 4
-		) {
+		if (moment(selectedDate).day() === 3 || moment(selectedDate).day() === 4) {
 			return selectedDate.setHours(10, 0);
 		}
-		if (
-			moment(selectedDate).day() === 5 ||
-			moment(selectedDate).day() === 6
-		) {
+		if (moment(selectedDate).day() === 5 || moment(selectedDate).day() === 6) {
 			return selectedDate.setHours(9, 0);
 		}
 	};
 
 	const setMaxTime = () => {
-		if (
-			moment(selectedDate).day() === 3 ||
-			moment(selectedDate).day() === 4
-		) {
+		if (moment(selectedDate).day() === 3 || moment(selectedDate).day() === 4) {
 			return selectedDate.setHours(19, 30);
 		}
 		if (moment(selectedDate).day() === 5) {
@@ -193,16 +184,12 @@ const AppointmentForm = () => {
 			<InputGroup width="50%" marginRight="10px">
 				<Label>First Name</Label>
 				<Input type="text" name="firstname" ref={register} />
-				{errors.firstname && (
-					<ErrorText>{errors.firstname.message}</ErrorText>
-				)}
+				{errors.firstname && <ErrorText>{errors.firstname.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup width="50%" marginLeft="10px">
 				<Label>Last Name</Label>
 				<Input type="text" name="lastname" ref={register} />
-				{errors.lastname && (
-					<ErrorText>{errors.lastname.message}</ErrorText>
-				)}
+				{errors.lastname && <ErrorText>{errors.lastname.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup width="50%" marginRight="10px">
 				<Label>Email</Label>
@@ -230,9 +217,7 @@ const AppointmentForm = () => {
 					)}
 				/>
 				{errors.appointment_request_date && (
-					<ErrorText>
-						{errors.appointment_request_date.message}
-					</ErrorText>
+					<ErrorText>{errors.appointment_request_date.message}</ErrorText>
 				)}
 			</InputGroup>
 			<InputGroup width="33.33%" marginRight="10px" marginLeft="10px">
@@ -256,9 +241,7 @@ const AppointmentForm = () => {
 					)}
 				/>
 				{errors.appointment_request_time && (
-					<ErrorText>
-						{errors.appointment_request_time.message}
-					</ErrorText>
+					<ErrorText>{errors.appointment_request_time.message}</ErrorText>
 				)}
 			</InputGroup>
 			<InputGroup width="33.33%" marginLeft="10px">
@@ -273,32 +256,27 @@ const AppointmentForm = () => {
 					<option value="extensions">Extensions</option>
 				</Select>
 				{errors.appointment_request_service && (
-					<ErrorText>
-						{errors.appointment_request_service.message}
-					</ErrorText>
+					<ErrorText>{errors.appointment_request_service.message}</ErrorText>
 				)}
 			</InputGroup>
 			<InputGroup>
 				<Label>Message</Label>
 				<TextArea name="message" rows="8" ref={register} />
-				{errors.message && (
-					<ErrorText>{errors.message.message}</ErrorText>
-				)}
+				{errors.message && <ErrorText>{errors.message.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup>
 				<FormText>
 					<em>
-						*Submitting this form does not guarantee an appointment
-						with the date and time requested. All appointments have
-						to be confirmed by Jesse Rhodes.
+						*Submitting this form does not guarantee an appointment with the
+						date and time requested. All appointments have to be confirmed by
+						Jesse Rhodes.
 					</em>
 				</FormText>
 				<FormText>
 					<em>
-						*Jesse Rhodes needs the contact information you provide
-						to her to contact you about the products and services
-						offered. You may unsubscribe from these communications
-						at any time.
+						*Jesse Rhodes needs the contact information you provide to her to
+						contact you about the products and services offered. You may
+						unsubscribe from these communications at any time.
 					</em>
 				</FormText>
 			</InputGroup>

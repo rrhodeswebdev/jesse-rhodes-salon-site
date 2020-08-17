@@ -80,6 +80,12 @@ const ErrorText = styled.span`
 	padding-top: 3px;
 `;
 
+const FormText = styled.span`
+	font-size: 12px;
+	font-weight: 300;
+	margin: 10px 0;
+`;
+
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const schema = yup.object().shape({
@@ -204,6 +210,15 @@ const MentorshipApplicationForm = () => {
 				<InputGroup>
 					<Button margin="10px 0 0">Submit</Button>
 				</InputGroup>
+			</Column>
+			<Column>
+				<FormText>
+					<em>
+						*Jesse Rhodes needs the contact information you provide to her to
+						contact you about the products and services offered. You may
+						unsubscribe from these communications at any time.
+					</em>
+				</FormText>
 			</Column>
 		</Form>
 	);
