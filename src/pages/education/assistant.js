@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import SEO from '../../components/seo';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
-import MentorshipApplicationForm from '../../components/forms/MentorshipApplicationForm';
-import MentorHeaderImg from '../../images/mentor-header.jpg';
+import AssistantApplicationForm from '../../components/forms/AssistantApplicationForm';
+import AssistantHeaderImg from '../../images/assistant-header.jpg';
 
 const TextWrapper = styled.div`
 	display: flex;
@@ -23,8 +23,8 @@ const Text = styled.p`
 const Mentor = () => {
 	return (
 		<StandardPage>
-			<SEO title="Mentorship" />
-			<SimplePageHeader text="Mentorship" image={MentorHeaderImg} />
+			<SEO title="Assistant Program" />
+			<SimplePageHeader text="Assistant Program" image={AssistantHeaderImg} />
 			<TextWrapper>
 				<Text>
 					Not only do I enjoy teaching through the Laced Academy, but I also
@@ -42,7 +42,7 @@ const Mentor = () => {
 					clientele!
 				</Text>
 			</TextWrapper>
-			<MentorshipApplicationForm />
+			<AssistantApplicationForm />
 		</StandardPage>
 	);
 };

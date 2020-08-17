@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/seo';
+import { Link } from 'gatsby';
+import { Button } from '../components/elements/Button';
 import StandardPage from '../components/layouts/StandardPage';
 import SimplePageHeader from '../components/content/SimplePageHeader';
 import AboutMeImg from '../images/about-me.jpg';
@@ -11,7 +13,7 @@ const Container = styled.section`
 	justify-content: center;
 	padding: 0 40px;
 	max-width: 1200px;
-	margin: 0 auto;
+	margin: 0 auto 40px;
 `;
 
 const TextContainer = styled.div`
@@ -19,11 +21,10 @@ const TextContainer = styled.div`
 	flex-direction: column;
 	padding-left: 20px;
 	width: 60%;
-	padding-top: 40px;
 `;
 
 const Paragraph = styled.p`
-	font-size: 16px;
+	font-size: 18px;
 	font-weight: 300;
 	margin: 0;
 	padding-bottom: 20px;
@@ -33,8 +34,19 @@ const ImageContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	padding-right: 20px;
-	padding-top: 40px;
 	width: 40%;
+`;
+
+const Image = styled.img`
+	object-fit: cover;
+	width: 100%;
+`;
+
+const ButtonContainer = styled.section`
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 40px 0;
 `;
 
 const About = () => {
@@ -44,11 +56,7 @@ const About = () => {
 			<SimplePageHeader text="About Me" />
 			<Container>
 				<ImageContainer>
-					<img
-						src={AboutMeImg}
-						alt="About Me Image"
-						style={{ width: '100%' }}
-					/>
+					<Image src={AboutMeImg} alt="About Me Image" />
 				</ImageContainer>
 				<TextContainer>
 					<Paragraph>
@@ -96,6 +104,14 @@ const About = () => {
 						to book an appointment, or inquire about extension education, I’d
 						love to connect with you!
 					</Paragraph>
+					<ButtonContainer>
+						<Link to="/booking/appointment">
+							<Button>Appointments</Button>
+						</Link>
+						<Link to="/education/laced">
+							<Button>Classes</Button>
+						</Link>
+					</ButtonContainer>
 				</TextContainer>
 			</Container>
 		</StandardPage>

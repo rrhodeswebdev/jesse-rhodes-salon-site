@@ -122,7 +122,7 @@ const Laced = () => {
 				<Image src={LacedHeaderImg3} />
 			</ImageGroup>
 			<ClassCardGroup>
-				<H2>Upcoming classes</H2>
+				<H2>Upcoming Classes</H2>
 				{classes.length > 0 ? (
 					classes.map(card => (
 						<ClassCard

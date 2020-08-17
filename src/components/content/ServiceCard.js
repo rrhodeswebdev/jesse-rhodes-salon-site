@@ -23,7 +23,7 @@ const CardImg = styled.img`
 
 const ImgOffsetBorder = styled.div`
 	position: absolute;
-	border: 4px solid #e0ddd7;
+	border: 3px solid #e0ddd7;
 	width: 100%;
 	height: 100%;
 	top: 14px;

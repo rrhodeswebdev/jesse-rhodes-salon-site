@@ -13,7 +13,8 @@ const extensionData = [
 		id: 1,
 		title: 'Consultation',
 		price: '$40',
-		description: 'In-person meeting to discuss hair goals and budget.',
+		description:
+			'Includes an in-person meeting to discuss hair goals and budget.',
 		time: '30 minutes',
 	},
 ];
@@ -62,39 +63,33 @@ const extensionBeadedData = [
 const extensionTapeData = [
 	{
 		id: 7,
-		title: '14-18”',
-		price: '$18/piece',
+		title: '18-20”',
+		price: '$20/piece',
 		description: 'Includes hair extensions and installation.',
 	},
 	{
 		id: 8,
-		title: '20-22”',
-		price: '$22/piece',
+		title: '22-24”',
+		price: '$25/piece',
 		description: 'Includes hair extensions and installation.',
 	},
 	{
 		id: 9,
-		title: '24”',
-		price: '$24/piece',
-		description: 'Includes hair extensions and installation.',
-	},
-	{
-		id: 10,
 		title: 'Reinstalls',
-		price: '$5/piece',
+		price: '$5/tape',
 		description:
 			'Includes removal of extensions, retabbing extensions with new tape, and reinstalling hair extensions.',
 	},
 	{
-		id: 11,
+		id: 10,
 		title: 'Sculpting',
 		price: '$50',
-		description: 'Blending and styling extensions.',
+		description: 'Includes blending and styling extensions.',
 	},
 	{
-		id: 12,
+		id: 11,
 		title: 'Removal',
-		price: '$150',
+		price: '$200',
 		description:
 			'Includes full removal of extensions and excess tape residue, luxury shampoo, conditioning treatment, blowout, and heat styling.',
 	},
