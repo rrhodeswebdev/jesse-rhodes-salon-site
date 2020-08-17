@@ -7,8 +7,9 @@ import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
 import ServiceCard from '../../components/content/ServiceCard';
 import { Button } from '../../components/elements/Button';
-import cardImage2 from '../../images/IMG_1726.jpg';
-import cardImage3 from '../../images/IMG_1727.jpg';
+import ColorService from '../../images/color-service.jpg';
+import ExtensionService from '../../images/extension-service.jpg';
+import StylingService from '../../images/styling-service.jpg';
 
 const testimonials = [
 	{
@@ -55,19 +56,19 @@ const Services = () => {
 			<CardsContainer>
 				<ServiceCard
 					title="Styling"
-					image={cardImage3}
+					image={StylingService}
 					link="/services/styling"
 					text="See Pricing"
 				/>
 				<ServiceCard
 					title="Color"
-					image={cardImage2}
+					image={ColorService}
 					link="/services/color"
 					text="See Pricing"
 				/>
 				<ServiceCard
 					title="Extensions"
-					image={cardImage3}
+					image={ExtensionService}
 					link="/services/extensions"
 					text="See Pricing"
 				/>
