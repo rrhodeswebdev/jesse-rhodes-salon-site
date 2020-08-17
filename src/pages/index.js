@@ -12,20 +12,17 @@ const testimonials = [
 	{
 		id: 1,
 		text:
-			'Jesse does amazing work. She was able to give me the exact color hair I have been dreaming about for years.',
-		person: 'Karen Rhodes',
+			'When it was time to cut and style my hair, Jesse listened to what I wanted and needed. I walked out of the salon feeling confident with my chic new cut.',
 	},
 	{
 		id: 2,
 		text:
-			'If you need extensions and have the means to travel to Jesse, you have to. She installed new extensions in my hair at a great price and provided professional quality work.',
-		person: 'Shannon Rhodes',
+			'Jesse is an excellent colorist and hairdresser. I can always count on her to put a big old smile on my face after working her magic on me at the salon!',
 	},
 	{
 		id: 3,
 		text:
-			'I have been going to Jesse for 15 years now and she has not once disappointed me. She is always at the top of her craft and goes above and beyond for me.',
-		person: 'Lili Rhodes',
+			'She is truly a fabulous stylist. She always knows what I want…even if I am not quite sure! My cut is always spot on. The color is always perfect. I always get many compliments!',
 	},
 ];
 

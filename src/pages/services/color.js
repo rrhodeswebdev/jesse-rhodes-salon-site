@@ -13,7 +13,8 @@ const stylingData = [
 		id: 1,
 		title: 'Consultation',
 		price: '$40',
-		description: 'In-person meeting to discuss hair goals and budget.',
+		description:
+			'Includes an in-person meeting to discuss hair goals and budget.',
 		time: '30 minutes',
 	},
 	{
@@ -21,7 +22,7 @@ const stylingData = [
 		title: 'Root Touch Up',
 		price: '$65+',
 		description:
-			'Includes single color on new growth (up to 2 inches), luxury shampoo and blowout.',
+			'Includes single color on new growth (up to 2 inches), luxury shampoo, and blowout.',
 		time: '90 minutes',
 	},
 	{
@@ -37,7 +38,7 @@ const stylingData = [
 		title: 'Partial Foil',
 		price: '$85+',
 		description:
-			'Includes sides, top, and crown colored using foils, luxury shampoo, blowout.',
+			'Includes sides, top, and crown colored using foils, luxury shampoo, and blowout.',
 		time: '90 minutes',
 	},
 	{
@@ -45,7 +46,7 @@ const stylingData = [
 		title: 'Full Foil',
 		price: '$110+',
 		description:
-			'Includes coloring all hair using foils, luxury shampoo, blowout.',
+			'Includes coloring all hair using foils, luxury shampoo, and blowout.',
 		time: '120 minutes',
 	},
 	{
@@ -53,7 +54,7 @@ const stylingData = [
 		title: 'Balayage',
 		price: '$130+',
 		description:
-			'Includes free hand painting of color, luxury shampoo, blowout.',
+			'Includes free hand painting of color, luxury shampoo, and blowout.',
 		time: '120 minutes',
 	},
 	{

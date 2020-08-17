@@ -17,7 +17,7 @@ const Form = styled.form`
 `;
 
 const FormHeader = styled.h2`
-	font-size: 28px;
+	font-size: 36px;
 	font-weight: 300;
 	text-align: center;
 	margin-bottom: 40px;
@@ -44,6 +44,7 @@ const InputGroup = styled.div`
 const Label = styled.label`
 	font-size: 18px;
 	margin-bottom: 10px;
+	font-weight: 300;
 `;
 
 const Input = styled.input`
@@ -70,19 +71,6 @@ const TextArea = styled.textarea`
 	border: 1px solid #c8c2b9;
 	resize: none;
 	height: 150px;
-`;
-
-const CheckboxGroup = styled.div`
-	display: flex;
-	align-items: center;
-	margin-bottom: 5px;
-	margin-right: 20px;
-`;
-
-const CheckboxLabel = styled.label`
-	font-size: 18px;
-	font-weight: 300;
-	margin-left: 5px;
 `;
 
 const ErrorText = styled.span`

@@ -35,11 +35,7 @@ const TestimonialSlider = props => {
 		<Container>
 			<Slider {...settings}>
 				{testimonials.map(testimonial => (
-					<Testimonial
-						key={testimonial.id}
-						quote={testimonial.text}
-						person={testimonial.person}
-					/>
+					<Testimonial key={testimonial.id} quote={testimonial.text} />
 				))}
 			</Slider>
 		</Container>

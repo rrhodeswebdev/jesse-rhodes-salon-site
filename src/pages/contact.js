@@ -86,7 +86,7 @@ const Contact = () => {
 							Concord, NC 28025
 						</Link>
 					</ColText>
-					<HoursBlock textAlign="left" dividerMargin="0" />
+					<HoursBlock textAlign="left" dividerMargin="0" dividerWidth="100%" />
 				</Column>
 				<Column width="50%" padding="40px 0 0 40px">
 					<ContactForm />
