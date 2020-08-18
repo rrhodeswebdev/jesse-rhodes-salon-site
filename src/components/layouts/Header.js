@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 import logo from '../../images/jesserhodes-logo.png';
@@ -26,6 +26,20 @@ const LinkList = styled.ul`
 	align-items: center;
 	margin: 0;
 	height: 100%;
+
+	@media (max-width: 860px) {
+		flex-direction: column;
+		position: fixed;
+		top: 125px;
+		right: 0;
+		width: 100%;
+		height: auto;
+		background-color: #e0ddd7;
+		transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
+		transition: 0.25s linear;
+		padding: 40px;
+		z-index: 15;
+	}
 `;
 
 const LinkItem = styled.li`
@@ -53,12 +67,61 @@ const LinkItem = styled.li`
 			border-bottom: 1px solid #b18e72;
 		}
 	}
+
+	@media (max-width: 860px) {
+		height: auto;
+		padding: 20px 40px;
+	}
+`;
+
+const Burger = styled.div`
+	display: none;
+	justify-content: space-around;
+	flex-flow: column nowrap;
+	height: 35px;
+	cursor: pointer;
+	outline: none;
+	z-index: 20;
+
+	div {
+		background-color: black;
+		height: 1px;
+		width: 35px;
+		transform-origin: 1px;
+		transition: all 0.25s linear;
+
+		&:nth-child(1) {
+			transform: ${({ open }) => (open ? 'rotate(45deg)' : 'rotate(0)')};
+		}
+
+		&:nth-child(2) {
+			transform: ${({ open }) => (open ? 'translateX(100%)' : 'translateX(0)')};
+			opacity: ${({ open }) => (open ? '0' : '1')};
+		}
+
+		&:nth-child(3) {
+			transform: ${({ open }) => (open ? 'rotate(-45deg)' : 'rotate(0)')};
+		}
+	}
+
+	@media (max-width: 860px) {
+		display: flex;
+	}
 `;
 
 const Links = () => {
+	const [burgerDisplay, setBurgerDisplay] = useState(false);
 	return (
 		<LinkContainer>
-			<LinkList>
+			<Burger
+				open={burgerDisplay}
+				onClick={() => setBurgerDisplay(!burgerDisplay)}
+			>
+				<div></div>
+				<div></div>
+				<div></div>
+			</Burger>
+			<LinkList open={burgerDisplay}>
 				<LinkItem>
 					<Link to="/" activeClassName="active-link">
 						Home
