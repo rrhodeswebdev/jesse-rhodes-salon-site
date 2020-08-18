@@ -12,6 +12,10 @@ const Image = styled.img`
 	height: 75vh;
 	object-fit: cover;
 	object-position: center;
+
+	@media (max-width: 600px) {
+		height: 45vh;
+	}
 `;
 
 const HeroImage = props => {
