@@ -21,6 +21,15 @@ const TextContainer = styled.div`
 	flex-direction: column;
 	padding-left: 20px;
 	width: 60%;
+
+	@media (max-width: 1024px) {
+		width: 50%;
+	}
+
+	@media (max-width: 860px) {
+		width: 100%;
+		padding-left: 0;
+	}
 `;
 
 const Paragraph = styled.p`
@@ -35,11 +44,30 @@ const ImageContainer = styled.div`
 	justify-content: center;
 	padding-right: 20px;
 	width: 40%;
+
+	@media (max-width: 1024px) {
+		width: 50%;
+	}
+
+	@media (max-width: 860px) {
+		width: 100%;
+		padding-right: 0;
+		margin-bottom: 40px;
+		max-height: 750px;
+	}
 `;
 
 const Image = styled.img`
 	object-fit: cover;
 	width: 100%;
+
+	@media (max-width: 1024px) {
+		object-position: 35%;
+	}
+
+	@media (max-width: 860px) {
+		object-position: 0 40%;
+	}
 `;
 
 const ButtonContainer = styled.section`
@@ -47,6 +75,24 @@ const ButtonContainer = styled.section`
 	justify-content: space-evenly;
 	align-items: center;
 	margin: 40px 0;
+
+	@media (max-width: 1024px) {
+		flex-direction: column;
+		margin: 0;
+		margin-top: 40px;
+
+		Button {
+			margin-bottom: 40px;
+		}
+	}
+
+	@media (max-width: 860px) {
+		flex-direction: row;
+	}
+
+	@media (max-width: 625px) {
+		flex-direction: column;
+	}
 `;
 
 const About = () => {

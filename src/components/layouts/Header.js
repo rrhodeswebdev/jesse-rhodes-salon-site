@@ -30,12 +30,13 @@ const LinkList = styled.ul`
 	@media (max-width: 860px) {
 		flex-direction: column;
 		position: fixed;
-		top: 125px;
+		top: 0;
 		right: 0;
 		width: 100%;
-		height: auto;
+		height: 100vh;
+		justify-content: center;
 		background-color: #e0ddd7;
-		transform: ${({ open }) => (open ? 'translateY(0)' : 'translateY(-100vh)')};
+		transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
 		transition: 0.25s linear;
 		padding: 40px;
 		z-index: 15;
@@ -76,6 +77,7 @@ const LinkItem = styled.li`
 
 const Burger = styled.div`
 	display: none;
+	position: ${({ open }) => open && 'fixed'};
 	justify-content: space-around;
 	flex-flow: column nowrap;
 	height: 35px;
@@ -95,8 +97,8 @@ const Burger = styled.div`
 		}
 
 		&:nth-child(2) {
-			transform: ${({ open }) => (open ? 'translateX(100%)' : 'translateX(0)')};
 			opacity: ${({ open }) => (open ? '0' : '1')};
+			transition: 0s linear;
 		}
 
 		&:nth-child(3) {
