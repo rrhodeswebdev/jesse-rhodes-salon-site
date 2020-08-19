@@ -15,6 +15,11 @@ const ColumnContainer = styled.section`
 	margin: 40px auto;
 	max-width: 1200px;
 	padding: 0 40px;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		justify-content: center;
+	}
 `;
 
 const ContactHeader = styled.h2`
@@ -27,6 +32,10 @@ const ContactHeader = styled.h2`
 const Column = styled.div`
 	padding: ${props => props.padding && props.padding};
 	width: ${props => props.width && props.width};
+
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 const ColGroup = styled.div`
@@ -88,7 +97,7 @@ const Contact = () => {
 					</ColText>
 					<HoursBlock textAlign="left" dividerMargin="0" dividerWidth="100%" />
 				</Column>
-				<Column width="50%" padding="40px 0 0 40px">
+				<Column width="50%" padding="40px 0 0 0">
 					<ContactForm />
 				</Column>
 			</ColumnContainer>

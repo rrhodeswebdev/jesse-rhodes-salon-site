@@ -15,10 +15,19 @@ const Group = styled.div`
 	margin-bottom: 15px;
 	width: ${props => props.width && props.width};
 	padding: ${props => props.padding && props.padding};
+
+	@media (max-width: 575px) {
+		width: 100%;
+		padding: 0;
+	}
 `;
 
 const ColContainer = styled.div`
 	display: flex;
+
+	@media (max-width: 575px) {
+		flex-direction: column;
+	}
 `;
 
 const Label = styled.label`
@@ -100,11 +109,7 @@ const ContactForm = () => {
 			{successMessage && <FormSuccess message={successMessage} />}
 			<Group>
 				<Label htmlFor="email">Email</Label>
-				<Input
-					type="text"
-					name="email"
-					ref={register({ required: true })}
-				/>
+				<Input type="text" name="email" ref={register({ required: true })} />
 				{errors.email && <ErrorText>This field is required</ErrorText>}
 			</Group>
 			<ColContainer>
@@ -115,9 +120,7 @@ const ContactForm = () => {
 						name="firstname"
 						ref={register({ required: true })}
 					/>
-					{errors.firstname && (
-						<ErrorText>This field is required</ErrorText>
-					)}
+					{errors.firstname && <ErrorText>This field is required</ErrorText>}
 				</Group>
 				<Group width="50%" padding="0 0 0 5px">
 					<Label htmlFor="lastname">Last Name</Label>
@@ -126,17 +129,12 @@ const ContactForm = () => {
 						name="lastname"
 						ref={register({ required: true })}
 					/>
-					{errors.lastname && (
-						<ErrorText>This field is required</ErrorText>
-					)}
+					{errors.lastname && <ErrorText>This field is required</ErrorText>}
 				</Group>
 			</ColContainer>
 			<Group>
 				<Label htmlFor="reason_of_contact">Reason of Contact</Label>
-				<Select
-					name="reason_of_contact"
-					ref={register({ required: true })}
-				>
+				<Select name="reason_of_contact" ref={register({ required: true })}>
 					<option value="" defaultValue></option>
 					<option value="Appointments">Appointments</option>
 					<option value="Services">Services</option>
@@ -156,9 +154,7 @@ const ContactForm = () => {
 					rows="10"
 					ref={register({ required: true })}
 				></TextArea>
-				{errors.message && (
-					<ErrorText>This field is required</ErrorText>
-				)}
+				{errors.message && <ErrorText>This field is required</ErrorText>}
 			</Group>
 			<Group>
 				<Button type="submit" width="100%" margin="0">
@@ -168,10 +164,9 @@ const ContactForm = () => {
 			<Group>
 				<FormText>
 					<em>
-						*Jesse Rhodes needs the contact information you provide
-						to her to contact you about the products and services
-						offered. You may unsubscribe from these communications
-						at any time.
+						*Jesse Rhodes needs the contact information you provide to her to
+						contact you about the products and services offered. You may
+						unsubscribe from these communications at any time.
 					</em>
 				</FormText>
 			</Group>
