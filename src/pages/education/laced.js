@@ -40,6 +40,7 @@ const Image = styled.img`
 	width: 100%;
 	max-width: 300px;
 	object-fit: contain;
+	height: auto;
 
 	:nth-child(1) {
 		margin-right: 20px;
