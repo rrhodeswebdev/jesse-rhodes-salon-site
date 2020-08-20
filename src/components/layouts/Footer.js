@@ -30,9 +30,10 @@ const SocialIcon = styled(FontAwesomeIcon)`
 
 const LegalWrapper = styled.div`
 	padding: 20px 40px;
-	span {
+	p {
 		font-weight: 300;
 		font-size: 12px;
+		text-align: center;
 		a {
 			color: #b18e72;
 			text-decoration: none;
@@ -64,10 +65,10 @@ const Footer = () => {
 				</a>
 			</SocialWrapper>
 			<LegalWrapper>
-				<span>
+				<p>
 					Copyright © {currentYear} | Made by{' '}
 					<a href="https://ryanrhodes.io">Ryan Rhodes</a>
-				</span>
+				</p>
 			</LegalWrapper>
 		</FooterWrapper>
 	);
