@@ -31,6 +31,14 @@ const ButtonContainer = styled.section`
 	justify-content: center;
 	align-items: center;
 	padding: 40px 0;
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+
+		Button {
+			margin-bottom: 40px;
+		}
+	}
 `;
 
 const IndexPage = () => (

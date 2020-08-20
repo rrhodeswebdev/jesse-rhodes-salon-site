@@ -23,6 +23,10 @@ const Card = styled.div`
 
 const CardColContainer = styled.div`
 	display: flex;
+
+	@media (max-width: 900px) {
+		flex-direction: column-reverse;
+	}
 `;
 
 const CardCol = styled.div`
@@ -30,6 +34,16 @@ const CardCol = styled.div`
 	flex-direction: column;
 	width: ${props => props.width && props.width};
 	padding: 0 40px;
+
+	@media (max-width: 900px) {
+		margin-bottom: 40px;
+		width: 100%;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		padding: 0;
+	}
 `;
 
 const CardHeader = styled.h3`
@@ -38,6 +52,11 @@ const CardHeader = styled.h3`
 	margin: 0 0 40px;
 	font-size: 24px;
 	letter-spacing: 1px;
+
+	@media (max-width: 900px) {
+		width: 100%;
+		text-align: center;
+	}
 `;
 
 const Icon = styled(FontAwesomeIcon)`
@@ -90,7 +109,6 @@ const ClassCard = props => {
 			<CardColContainer>
 				<CardCol width="350px">
 					<Span size="18px">
-						{' '}
 						<Icon icon={faCalendar} />
 						<strong>Date: </strong>
 						{date}
@@ -111,11 +129,7 @@ const ClassCard = props => {
 						{location}
 					</Span>
 					{isAvailable ? (
-						<a
-							href={classLink}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href={classLink} target="_blank" rel="noopener noreferrer">
 							<Button margin="0" width="100%">
 								Enroll Here
 							</Button>
@@ -144,9 +158,7 @@ const ClassCard = props => {
 				</CardCol>
 			</CardColContainer>
 			<div className="laced-notification-form">
-				{notificationForm && (
-					<NotifyLacedForm id="laced-notification-form" />
-				)}
+				{notificationForm && <NotifyLacedForm id="laced-notification-form" />}
 			</div>
 		</Card>
 	);

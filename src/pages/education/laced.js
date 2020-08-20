@@ -24,17 +24,39 @@ const Text = styled.p`
 
 const ImageGroup = styled.div`
 	display: flex;
+	flex-wrap: wrap;
 	margin: 0 auto 40px;
 	justify-content: space-between;
 	max-width: 1200px;
 	padding: 0 40px;
 	width: 100%;
+
+	@media (max-width: 1024px) {
+		justify-content: center;
+	}
 `;
 
 const Image = styled.img`
 	width: 100%;
 	max-width: 300px;
 	height: auto;
+	object-fit: cover;
+
+	:nth-child(1) {
+		margin-right: 20px;
+	}
+
+	:nth-child(3) {
+		margin-left: 20px;
+	}
+
+	@media (max-width: 1024px) {
+		margin-bottom: 40px;
+	}
+
+	@media (max-width: 680px) {
+		max-width: 350px;
+	}
 `;
 
 const H2 = styled.h2`

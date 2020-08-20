@@ -32,6 +32,10 @@ const Column = styled.div`
 	div:nth-child(1) {
 		padding-right: 5px;
 	}
+
+	@media (max-width: 575px) {
+		margin-bottom: 0;
+	}
 `;
 
 const InputGroup = styled.div`
@@ -39,6 +43,11 @@ const InputGroup = styled.div`
 	flex-direction: ${props => (props.direction ? props.direction : 'column')};
 	flex-wrap: ${props => props.wrap && 'wrap'};
 	width: ${props => (props.width ? props.width : '100%')};
+
+	@media (max-width: 575px) {
+		width: 100%;
+		margin-bottom: 20px;
+	}
 `;
 
 const Label = styled.label`

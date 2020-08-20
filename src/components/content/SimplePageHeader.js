@@ -17,6 +17,7 @@ const PageHeader = styled.h1`
 	justify-content: center;
 	font-size: 42px;
 	font-weight: 300;
+	text-align: center;
 `;
 
 const Image = styled.img`
