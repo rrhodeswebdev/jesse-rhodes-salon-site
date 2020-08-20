@@ -39,7 +39,7 @@ const ImageGroup = styled.div`
 const Image = styled.img`
 	width: 100%;
 	max-width: 300px;
-	object-fit: cover;
+	object-fit: contain;
 
 	:nth-child(1) {
 		margin-right: 20px;
@@ -55,6 +55,14 @@ const Image = styled.img`
 
 	@media (max-width: 680px) {
 		max-width: 350px;
+
+		:nth-child(1) {
+			margin-right: 0;
+		}
+
+		:nth-child(3) {
+			margin-left: 0;
+		}
 	}
 `;
 
