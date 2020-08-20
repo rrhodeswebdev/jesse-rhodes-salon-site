@@ -8,6 +8,7 @@ const HeaderWrapper = styled.header`
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 40px;
+	height: auto;
 
 	@media (max-width: 860px) {
 		padding: 10px 20px;
