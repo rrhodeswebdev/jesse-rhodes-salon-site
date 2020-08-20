@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import logo from '../../images/jesserhodes-logo.png';
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.div`
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
@@ -11,7 +11,7 @@ const HeaderWrapper = styled.header`
 	height: auto;
 
 	@media (max-width: 860px) {
-		padding: 20px 40px;
+		padding: 20px;
 	}
 `;
 
