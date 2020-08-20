@@ -26,4 +26,8 @@ export const Button = styled.button`
 			props.hoverBgColor ? props.hoverBgColor : '#b18e72'};
 		color: ${props => props.hoverColor && props.hoverColor};
 	}
+
+	@media (max-width: 425px) {
+		min-width: 0;
+	}
 `;

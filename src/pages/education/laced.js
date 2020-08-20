@@ -39,7 +39,6 @@ const ImageGroup = styled.div`
 const Image = styled.img`
 	width: 100%;
 	max-width: 300px;
-	height: auto;
 	object-fit: cover;
 
 	:nth-child(1) {
