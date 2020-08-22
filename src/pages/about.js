@@ -60,14 +60,6 @@ const ImageContainer = styled.div`
 const Image = styled.img`
 	object-fit: cover;
 	width: 100%;
-
-	@media (max-width: 1024px) {
-		object-position: 35%;
-	}
-
-	@media (max-width: 860px) {
-		object-position: 0 40%;
-	}
 `;
 
 const ButtonContainer = styled.section`

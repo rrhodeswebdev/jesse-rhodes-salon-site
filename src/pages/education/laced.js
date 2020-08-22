@@ -20,6 +20,10 @@ const TextGroup = styled.div`
 const Text = styled.p`
 	font-size: 18px;
 	font-weight: 300;
+
+	@media (max-width: 425px) {
+		text-align: center;
+	}
 `;
 
 const ImageGroup = styled.div`
@@ -39,7 +43,7 @@ const ImageGroup = styled.div`
 const Image = styled.img`
 	width: 100%;
 	max-width: 300px;
-	object-fit: contain;
+	object-fit: cover;
 	height: auto;
 
 	:nth-child(1) {

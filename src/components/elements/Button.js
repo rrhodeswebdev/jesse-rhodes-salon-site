@@ -28,6 +28,7 @@ export const Button = styled.button`
 	}
 
 	@media (max-width: 425px) {
-		min-width: 0;
+		margin: 0 0 40px;
+		min-width: ${props => props.mobileMinWidth && props.mobileMinWidth};
 	}
 `;

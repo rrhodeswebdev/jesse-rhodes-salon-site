@@ -130,8 +130,8 @@ const ClassCard = props => {
 					</Span>
 					{isAvailable ? (
 						<a href={classLink} target="_blank" rel="noopener noreferrer">
-							<Button margin="0" width="100%">
-								Enroll Here
+							<Button margin="0" width="100%" mobileMinWidth="100%">
+								Enroll
 							</Button>
 						</a>
 					) : notificationForm ? (
