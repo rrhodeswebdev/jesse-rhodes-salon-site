@@ -60,6 +60,8 @@ const Image = styled.img`
 
 	@media (max-width: 680px) {
 		max-width: 350px;
+		max-height: 425px;
+		object-position: bottom;
 
 		:nth-child(1) {
 			margin-right: 0;
