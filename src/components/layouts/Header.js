@@ -8,6 +8,10 @@ const HeaderWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 40px;
+
+	@media (max-width: 680px) {
+		height: 105px;
+	}
 `;
 
 const Logo = styled.img`
