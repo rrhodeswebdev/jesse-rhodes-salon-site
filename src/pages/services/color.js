@@ -61,7 +61,7 @@ const stylingData = [
 		id: 7,
 		title: 'Color Add Ons',
 		price: 'TBD',
-		description: 'Ie: shadow root, extra toners, root melt, fantasy color',
+		description: 'ie: shadow root, extra toners, root melt, fantasy color',
 		time: 'TBD',
 	},
 ];

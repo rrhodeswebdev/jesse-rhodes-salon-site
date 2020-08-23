@@ -281,7 +281,7 @@ const AppointmentForm = () => {
 				</FormText>
 			</InputGroup>
 			<InputGroup>
-				<Button margin="0 auto" width="250px">
+				<Button margin="0 auto" width="250px" mobileMinWidth="100%">
 					Submit
 				</Button>
 			</InputGroup>

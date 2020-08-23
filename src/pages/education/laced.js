@@ -133,7 +133,7 @@ const Laced = () => {
 					As a Laced Hair Educator, I enjoy traveling to salons all over the US
 					to teach stylists the art of hair extensions. Laced Hair Extensions
 					proudly offers six unique extension methods (keratin bond, i-tip,
-					tape-ins, clip ins, hand tied wefts, and machine sewn wefts) to be
+					tape-ins, clip-ins, hand-tied wefts, and machine-sewn wefts) to be
 					able to customize and serve your client’s individual needs. Extensions
 					are not a “one-size fits all” service!
 				</Text>
