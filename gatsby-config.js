@@ -1,3 +1,9 @@
+const dotenv = require('dotenv');
+
+if (process.env.NODE_ENV !== 'production') {
+	dotenv.config();
+}
+
 module.exports = {
 	siteMetadata: {
 		title: 'Jesse Rhodes | Stylist & Extension Specialist',
@@ -62,8 +68,12 @@ module.exports = {
 				head: true,
 			},
 		},
-		// this (optional) plugin enables Progressive Web App + Offline functionality
-		// To learn more, visit: https://gatsby.dev/offline
-		// `gatsby-plugin-offline`,
+		{
+			resolve: 'gatsby-source-contentful',
+			options: {
+				spaceId: 'v3ftkilgbp2p',
+				accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+			},
+		},
 	],
 };

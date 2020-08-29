@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import gsap from 'gsap';
+import moment from 'moment';
 import styled from 'styled-components';
 import { Button } from '../../components/elements/Button';
 import NotifyLacedForm from '../forms/NotifyLacedForm';
@@ -111,7 +112,7 @@ const ClassCard = props => {
 					<Span size="18px">
 						<Icon icon={faCalendar} />
 						<strong>Date: </strong>
-						{date}
+						{moment(date).format('MMMM D, YYYY')}
 					</Span>
 					<Span size="18px">
 						<Icon icon={faClock} />

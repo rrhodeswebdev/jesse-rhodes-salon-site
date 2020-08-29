@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import StandardPage from '../../components/layouts/StandardPage';
 import SEO from '../../components/seo';
@@ -107,23 +109,29 @@ const A = styled.a`
 	text-align: center;
 `;
 
-const classes = [
+export const query = graphql`
 	{
-		id: 1,
-		date: 'December 7, 2020',
-		time: '9:30 AM - 5:00 PM',
-		salon: 'CC & Company Salon',
-		location: 'Concord, NC',
-		category: 'Beaded Weft Training Course',
-		description:
-			'The Laced Beaded Weft Training Course is 8 hours of hands-on training designed to teach students two of the most sought after extension application methods available: hand tied beaded wefts, and machine sewn beaded wefts. Laced Hair Academy keeps class sizes small to better provide individualized learning. The Beaded Weft Training Course dives deep into the proper application of hand tied and machine sewn extensions based on clients needs and wants from start to finish. Upon completion, stylists will be able to add this luxury service to their service menus!',
-		isAvailable: true,
-		classLink:
-			'https://lacedhair.com/products/laced-hair-beaded-weft-extension-training-course-concord-nc-20201207#',
-	},
-];
+		allContentfulLacedClass {
+			edges {
+				node {
+					id
+					category
+					salon
+					description {
+						description
+					}
+					classDate
+					classTime
+					isAvailable
+					classLink
+					classLocation
+				}
+			}
+		}
+	}
+`;
 
-const Laced = () => {
+const Laced = ({ data }) => {
 	return (
 		<StandardPage>
 			<SEO title="Laced Hair Academy" />
@@ -159,18 +167,18 @@ const Laced = () => {
 			</ImageGroup>
 			<ClassCardGroup>
 				<H2>Upcoming Classes</H2>
-				{classes.length > 0 ? (
-					classes.map(card => (
+				{data.allContentfulLacedClass.edges.length > 0 ? (
+					data.allContentfulLacedClass.edges.map(({ node }) => (
 						<ClassCard
-							key={card.id}
-							date={card.date}
-							time={card.time}
-							location={card.location}
-							category={card.category}
-							description={card.description}
-							isAvailable={card.isAvailable}
-							classLink={card.classLink}
-							salon={card.salon}
+							key={node.id}
+							date={node.classDate}
+							time={node.classTime}
+							location={node.classLocation}
+							category={node.category}
+							description={node.description.description}
+							isAvailable={node.isAvailable}
+							classLink={node.classLink}
+							salon={node.salon}
 						/>
 					))
 				) : (
@@ -192,6 +200,10 @@ const Laced = () => {
 			</ClassCardGroup>
 		</StandardPage>
 	);
+};
+
+Laced.propTypes = {
+	data: PropTypes.object,
 };
 
 export default Laced;
