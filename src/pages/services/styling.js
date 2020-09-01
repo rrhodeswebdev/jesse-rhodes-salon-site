@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 import SEO from '../../components/seo';
@@ -7,39 +9,6 @@ import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ServiceInfoBlock from '../../components/content/ServiceInfoBlock';
 import { Button } from '../../components/elements/Button';
 import StylingHeaderImg from '../../images/styling-header.jpg';
-
-const stylingData = [
-	{
-		id: 1,
-		title: 'Haircut',
-		price: '$40+',
-		description:
-			'Includes a luxury shampoo, custom haircut, blowdry, and heat finishing.',
-		time: '45 minutes',
-	},
-	{
-		id: 2,
-		title: 'Blowout',
-		price: '$30+',
-		description: 'Includes a luxury shampoo, blowout, and heat finishing.',
-		time: '30 minutes',
-	},
-	{
-		id: 3,
-		title: 'Conditioning Treatment',
-		price: '$15+',
-		description: 'Includes a custom moisture treatment.',
-		time: '15 minutes',
-	},
-	{
-		id: 4,
-		title: 'Smoothing System',
-		price: '$125/oz',
-		description:
-			'Rejuvenol smoothing system to help improve manageability and shine, and conditions hair.',
-		time: '60 minutes',
-	},
-];
 
 const MainContainer = styled.section`
 	display: flex;
@@ -60,19 +29,37 @@ const Disclaimer = styled.span`
 	margin-bottom: 40px;
 `;
 
-const Styling = () => {
+export const query = graphql`
+	{
+		allContentfulService(filter: { category: { eq: "Styling" } }) {
+			edges {
+				node {
+					id
+					name
+					description {
+						description
+					}
+					price
+					estTime
+				}
+			}
+		}
+	}
+`;
+
+const Styling = ({ data }) => {
 	return (
 		<StandardPage>
 			<SEO title="Styling Services" />
 			<SimplePageHeader text="Styling" image={StylingHeaderImg} />
 			<MainContainer>
-				{stylingData.map(style => (
+				{data.allContentfulService.edges.map(({ node }) => (
 					<ServiceInfoBlock
-						key={style.id}
-						title={style.title}
-						price={style.price}
-						description={style.description}
-						time={style.time && style.time}
+						key={node.id}
+						title={node.name}
+						price={node.price}
+						description={node.description.description}
+						time={node.estTime && node.estTime}
 					/>
 				))}
 				<Disclaimer>
@@ -85,6 +72,10 @@ const Styling = () => {
 			</MainContainer>
 		</StandardPage>
 	);
+};
+
+Styling.propTypes = {
+	data: PropTypes.object,
 };
 
 export default Styling;
