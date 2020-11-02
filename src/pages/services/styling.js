@@ -28,9 +28,7 @@ const Disclaimer = styled.span`
 	margin-bottom: 40px;
 `;
 
-const Styling = ({ stylingHeaderImage, stylingServices }) => {
-	console.log(stylingHeaderImage);
-	console.log(stylingServices);
+const Styling = ({ data: { stylingServices, stylingHeaderImage } }) => {
 	return (
 		<StandardPage>
 			<SEO title="Styling Services" />
@@ -42,11 +40,11 @@ const Styling = ({ stylingHeaderImage, stylingServices }) => {
 			<MainContainer>
 				{stylingServices.edges.map(service => (
 					<ServiceInfoBlock
-						key={service.id}
-						title={service.name}
-						price={service.price}
-						description={service.description.description}
-						time={service.estTime && service.estTime}
+						key={service.node.id}
+						title={service.node.name}
+						price={service.node.price}
+						description={service.node.description.description}
+						time={service.node.estTime && service.node.estTime}
 					/>
 				))}
 				<Disclaimer>
@@ -62,6 +60,7 @@ const Styling = ({ stylingHeaderImage, stylingServices }) => {
 };
 
 Styling.propTypes = {
+	data: PropTypes.object,
 	stylingServices: PropTypes.object,
 	stylingHeaderImage: PropTypes.object,
 };
