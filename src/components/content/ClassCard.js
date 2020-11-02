@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import gsap from 'gsap';
 import moment from 'moment';
 import styled from 'styled-components';
-import { Button } from '../../components/elements/Button';
+import { Button } from '../elements/Button';
 import NotifyLacedForm from '../forms/NotifyLacedForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {

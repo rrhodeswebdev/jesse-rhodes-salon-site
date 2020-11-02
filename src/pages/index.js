@@ -5,8 +5,7 @@ import StandardPage from '../components/layouts/StandardPage';
 import HeroImage from '../components/media/HeroImage';
 import TestimonialSlider from '../components/content/TestimonialSlider';
 import { Button } from '../components/elements/Button';
-import { Link } from 'gatsby';
-import HomePageBannerImg from '../images/home-page-header.jpg';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 
 const testimonials = [
 	{
@@ -41,20 +40,36 @@ const ButtonContainer = styled.section`
 	}
 `;
 
-const IndexPage = () => (
-	<StandardPage>
-		<SEO title="Home" />
-		<HeroImage src={HomePageBannerImg} alt="Hero Image" />
-		<TestimonialSlider testimonials={testimonials} />
-		<ButtonContainer>
-			<Link to="/booking/appointment">
-				<Button>Appointments</Button>
-			</Link>
-			<Link to="/education/laced">
-				<Button>Classes</Button>
-			</Link>
-		</ButtonContainer>
-	</StandardPage>
-);
+const IndexPage = () => {
+	const HomePageImage = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "n9xQ87rMpdhgGPvWPveZa" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
+	return (
+		<StandardPage>
+			<SEO title="Home" />
+			<HeroImage
+				src={HomePageImage.contentfulAsset.file.url}
+				alt={HomePageImage.contentfulAsset.title}
+			/>
+			<TestimonialSlider testimonials={testimonials} />
+			<ButtonContainer>
+				<Link to="/booking/appointment">
+					<Button>Appointments</Button>
+				</Link>
+				<Link to="/education/laced">
+					<Button>Classes</Button>
+				</Link>
+			</ButtonContainer>
+		</StandardPage>
+	);
+};
 
 export default IndexPage;

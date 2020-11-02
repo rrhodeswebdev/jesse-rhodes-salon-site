@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../components/seo';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Button } from '../components/elements/Button';
 import StandardPage from '../components/layouts/StandardPage';
 import SimplePageHeader from '../components/content/SimplePageHeader';
-import AboutMeImg from '../images/about-me.jpg';
 
 const Container = styled.section`
 	display: flex;
@@ -70,8 +69,7 @@ const ButtonContainer = styled.section`
 
 	@media (max-width: 1024px) {
 		flex-direction: column;
-		margin: 0;
-		margin-top: 40px;
+		margin: 40px 0 0 0;
 
 		Button {
 			margin-bottom: 40px;
@@ -88,13 +86,24 @@ const ButtonContainer = styled.section`
 `;
 
 const About = () => {
+	const { contentfulAsset: AboutImage } = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "4C3VGAYIlH39fEai3XzHDX" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="About" />
 			<SimplePageHeader text="About Me" />
 			<Container>
 				<ImageContainer>
-					<Image src={AboutMeImg} alt="About Me Image" />
+					<Image src={AboutImage.file.url} alt={AboutImage.title} />
 				</ImageContainer>
 				<TextContainer>
 					<Paragraph>

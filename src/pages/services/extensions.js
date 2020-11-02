@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import SEO from '../../components/seo';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ServiceInfoBlock from '../../components/content/ServiceInfoBlock';
 import { Button } from '../../components/elements/Button';
-import ExtensionHeaderImg from '../../images/extension-header.jpg';
 
 const extensionData = [
 	{
@@ -116,10 +115,25 @@ const ServiceHeading = styled.h2`
 `;
 
 const Extensions = () => {
+	const { contentfulAsset: ExtensionHeaderImg } = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "cz05SMGFW9l7QXzdNBc2r" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="Extensions Services" />
-			<SimplePageHeader text="Extensions" image={ExtensionHeaderImg} />
+			<SimplePageHeader
+				text="Extensions"
+				image={ExtensionHeaderImg.file.url}
+				imageAlt={ExtensionHeaderImg.title}
+			/>
 			<MainContainer>
 				{extensionData.map(service => (
 					<ServiceInfoBlock

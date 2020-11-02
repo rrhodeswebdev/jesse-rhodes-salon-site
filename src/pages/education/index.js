@@ -1,12 +1,11 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import SEO from '../../components/seo';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
 import ServiceCard from '../../components/content/ServiceCard';
-import LacedEducationImg from '../../images/laced-education.jpg';
-import AssistantEducationImg from '../../images/assistant-education.jpg';
 
 const testimonials = [
 	{
@@ -31,6 +30,27 @@ const CardsContainer = styled.section`
 `;
 
 const Education = () => {
+	const { assistantImage, lacedEducationImage } = useStaticQuery(graphql`
+		query {
+			assistantImage: contentfulAsset(
+				contentful_id: { eq: "4WXPA0uwoVm0PqobtXhBo8" }
+			) {
+				file {
+					url
+				}
+				title
+			}
+			lacedEducationImage: contentfulAsset(
+				contentful_id: { eq: "6iZXtbguNN8qUvI5JTepYu" }
+			) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="Education" />
@@ -38,13 +58,15 @@ const Education = () => {
 			<CardsContainer>
 				<ServiceCard
 					title="Laced Hair Academy"
-					image={LacedEducationImg}
+					image={lacedEducationImage.file.url}
+					alt={lacedEducationImage.title}
 					link="/education/laced"
 					text="More Information"
 				/>
 				<ServiceCard
 					title="Assistant Program"
-					image={AssistantEducationImg}
+					image={assistantImage.file.url}
+					alt={assistantImage.title}
 					link="/education/assistant"
 					text="More Information"
 				/>
