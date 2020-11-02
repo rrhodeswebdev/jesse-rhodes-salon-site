@@ -28,7 +28,9 @@ const Disclaimer = styled.span`
 	margin-bottom: 40px;
 `;
 
+
 const Styling = ({ data: { stylingServices, stylingHeaderImage } }) => {
+const Styling = ({ stylingHeaderImage, stylingServices }) => {
 	return (
 		<StandardPage>
 			<SEO title="Styling Services" />
