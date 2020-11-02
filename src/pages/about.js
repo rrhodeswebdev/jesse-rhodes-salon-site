@@ -140,11 +140,13 @@ const About = () => {
 					</Paragraph>
 					<Paragraph>
 						During my down time, I spend as much time with my family as
-						possible. My husband and I are secret disc golf nerds, and I love
-						creating art and science projects with my daughter - she’s such a
-						creative little girl! We have three dogs and two cats, and sometimes
-						I feel like we run a small zoo! I am so grateful for the life I
-						live, and I thank God every day for bringing me so much joy!
+						possible. My husband and I love spending time in the mountains -
+						especially fly fishing in the rivers. My daughter loves when we go
+						to the park and she’s able to ride her scooter. She is always
+						dancing and singing - she’s such a joyful little girl! We have three
+						dogs and two cats, and sometimes I feel like we run a small zoo! I
+						am so grateful for the life I live, and I thank God every day for
+						bringing me so much joy!
 					</Paragraph>
 					<Paragraph>
 						I want to share my joy and passion with you! Whether you are looking
