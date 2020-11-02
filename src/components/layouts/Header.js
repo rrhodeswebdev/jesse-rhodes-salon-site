@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
-import logo from '../../images/jesserhodes-logo.png';
 
 const HeaderWrapper = styled.div`
 	align-items: center;
@@ -127,9 +126,9 @@ const Links = () => {
 				open={burgerDisplay}
 				onClick={() => setBurgerDisplay(!burgerDisplay)}
 			>
-				<div></div>
-				<div></div>
-				<div></div>
+				<div />
+				<div />
+				<div />
 			</Burger>
 			<LinkList open={burgerDisplay}>
 				<LinkItem>
@@ -163,10 +162,20 @@ const Links = () => {
 };
 
 const Header = () => {
+	const { contentfulAsset: logo } = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "1s4OJTlUCwuPTwNTdy89ZL" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
 	return (
 		<HeaderWrapper>
 			<Link to="/">
-				<Logo src={logo} alt="Jesse Rhodes Logo" />
+				<Logo src={logo.file.url} alt={logo.title} />
 			</Link>
 			<Links />
 		</HeaderWrapper>

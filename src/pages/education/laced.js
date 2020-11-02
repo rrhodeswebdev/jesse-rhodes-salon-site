@@ -7,9 +7,6 @@ import SEO from '../../components/seo';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ClassCard from '../../components/content/ClassCard';
 import { Button } from '../../components/elements/Button';
-import LacedHeaderImg1 from '../../images/laced-header-1.jpg';
-import LacedHeaderImg2 from '../../images/laced-header-2.jpg';
-import LacedHeaderImg3 from '../../images/laced-header-3.jpg';
 
 const TextGroup = styled.div`
 	display: flex;
@@ -110,11 +107,11 @@ const A = styled.a`
 `;
 
 export const query = graphql`
-	{
-		allContentfulLacedClass {
+	query {
+		lacedClasses: allContentfulLacedClass {
 			edges {
 				node {
-					id
+					contentful_id
 					category
 					salon
 					description {
@@ -128,10 +125,36 @@ export const query = graphql`
 				}
 			}
 		}
+		lacedImage1: contentfulAsset(
+			contentful_id: { eq: "4AeMQcRZHW0zMJ6mGgBJPO" }
+		) {
+			file {
+				url
+			}
+			title
+		}
+		lacedImage2: contentfulAsset(
+			contentful_id: { eq: "4z0y5P2xvkm3exsK2TgSKW" }
+		) {
+			file {
+				url
+			}
+			title
+		}
+		lacedImage3: contentfulAsset(
+			contentful_id: { eq: "3didVmUTpY41eNSyDaHYP0" }
+		) {
+			file {
+				url
+			}
+			title
+		}
 	}
 `;
 
-const Laced = ({ data }) => {
+const Laced = ({
+	data: { lacedClasses, lacedImage1, lacedImage2, lacedImage3 },
+}) => {
 	return (
 		<StandardPage>
 			<SEO title="Laced Hair Academy" />
@@ -161,26 +184,28 @@ const Laced = ({ data }) => {
 				</Text>
 			</TextGroup>
 			<ImageGroup>
-				<Image src={LacedHeaderImg1} />
-				<Image src={LacedHeaderImg2} />
-				<Image src={LacedHeaderImg3} />
+				<Image src={lacedImage1.file.url} alt={lacedImage1.title} />
+				<Image src={lacedImage2.file.url} alt={lacedImage2.title} />
+				<Image src={lacedImage3.file.url} alt={lacedImage3.title} />
 			</ImageGroup>
 			<ClassCardGroup>
 				<H2>Upcoming Classes</H2>
-				{data.allContentfulLacedClass.edges.length > 0 ? (
-					data.allContentfulLacedClass.edges.map(({ node }) => (
-						<ClassCard
-							key={node.id}
-							date={node.classDate}
-							time={node.classTime}
-							location={node.classLocation}
-							category={node.category}
-							description={node.description.description}
-							isAvailable={node.isAvailable}
-							classLink={node.classLink}
-							salon={node.salon}
-						/>
-					))
+				{lacedClasses.edges.length > 0 ? (
+					lacedClasses.edges.map(classinfo => {
+						return (
+							<ClassCard
+								key={classinfo.node.contentful_id}
+								date={classinfo.node.classDate}
+								time={classinfo.node.classTime}
+								location={classinfo.node.classLocation}
+								category={classinfo.node.category}
+								description={classinfo.node.description.description}
+								isAvailable={classinfo.node.isAvailable}
+								classLink={classinfo.node.classLink}
+								salon={classinfo.node.salon}
+							/>
+						);
+					})
 				) : (
 					<NoClassGroup>
 						<NoClassText>
@@ -204,6 +229,10 @@ const Laced = ({ data }) => {
 
 Laced.propTypes = {
 	data: PropTypes.object,
+	lacedClasses: PropTypes.object,
+	lacedImage1: PropTypes.object,
+	lacedImage2: PropTypes.object,
+	lacedImage3: PropTypes.object,
 };
 
 export default Laced;

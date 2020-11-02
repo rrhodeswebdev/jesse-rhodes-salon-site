@@ -1,15 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import SEO from '../../components/seo';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import TestimonialSlider from '../../components/content/TestimonialSlider';
 import ServiceCard from '../../components/content/ServiceCard';
 import { Button } from '../../components/elements/Button';
-import ColorService from '../../images/color-service.jpg';
-import ExtensionService from '../../images/extension-service.jpg';
-import StylingService from '../../images/styling-service.jpg';
 
 const testimonials = [
 	{
@@ -46,6 +43,39 @@ const CardsContainer = styled.section`
 `;
 
 const Services = () => {
+	const {
+		stylingImage,
+		coloringImage,
+		extensionsImage,
+	} = useStaticQuery(graphql`
+		query {
+			stylingImage: contentfulAsset(
+				contentful_id: { eq: "mMCqx2vkQ7khBp3tkgp5k" }
+			) {
+				file {
+					url
+				}
+				title
+			}
+			coloringImage: contentfulAsset(
+				contentful_id: { eq: "2NrrMzh8ALAA3urdT7VQxt" }
+			) {
+				file {
+					url
+				}
+				title
+			}
+			extensionsImage: contentfulAsset(
+				contentful_id: { eq: "63stIzaW0mAhKjuftOj9yI" }
+			) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="Services" />
@@ -53,19 +83,22 @@ const Services = () => {
 			<CardsContainer>
 				<ServiceCard
 					title="Styling"
-					image={StylingService}
+					image={stylingImage.file.url}
+					alt={stylingImage.title}
 					link="/services/styling"
 					text="See Pricing"
 				/>
 				<ServiceCard
 					title="Color"
-					image={ColorService}
+					image={coloringImage.file.url}
+					alt={coloringImage.title}
 					link="/services/color"
 					text="See Pricing"
 				/>
 				<ServiceCard
 					title="Extensions"
-					image={ExtensionService}
+					image={extensionsImage.file.url}
+					alt={extensionsImage.title}
 					link="/services/extensions"
 					text="See Pricing"
 				/>

@@ -1,10 +1,10 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import SEO from '../../components/seo';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import AssistantApplicationForm from '../../components/forms/AssistantApplicationForm';
-import AssistantHeaderImg from '../../images/assistant-header.jpg';
 
 const TextWrapper = styled.div`
 	display: flex;
@@ -21,10 +21,25 @@ const Text = styled.p`
 `;
 
 const Mentor = () => {
+	const { contentfulAsset: AssistantHeaderImg } = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "1BMRK0xHuAA4Yft13UEfhA" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="Assistant Program" />
-			<SimplePageHeader text="Assistant Program" image={AssistantHeaderImg} />
+			<SimplePageHeader
+				text="Assistant Program"
+				image={AssistantHeaderImg.file.url}
+				imageAlt={AssistantHeaderImg.title}
+			/>
 			<TextWrapper>
 				<Text>
 					Not only do I enjoy teaching through the Laced Academy, but I also

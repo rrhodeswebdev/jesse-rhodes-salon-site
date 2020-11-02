@@ -40,13 +40,13 @@ const CardTitle = styled.span`
 `;
 
 const ServiceCard = props => {
-	const { title, image, link, text } = props;
+	const { title, image, alt, link, text } = props;
 	return (
 		<Card>
 			<CardTitle>{title}</CardTitle>
 			<ImgContainer>
 				<ImgOffsetBorder />
-				<CardImg src={image} />
+				<CardImg src={image} alt={alt} />
 			</ImgContainer>
 			<Link to={link}>
 				<Button
@@ -69,6 +69,7 @@ ServiceCard.propTypes = {
 	image: PropTypes.string.isRequired,
 	link: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired,
+	alt: PropTypes.string.isRequired,
 };
 
 export default ServiceCard;

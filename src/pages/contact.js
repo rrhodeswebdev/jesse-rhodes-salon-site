@@ -1,4 +1,5 @@
 import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import styled from 'styled-components';
 import SEO from '../components/seo';
 import StandardPage from '../components/layouts/StandardPage';
@@ -6,7 +7,6 @@ import { Divider } from '../components/elements/Divider';
 import ContactForm from '../components/forms/ContactForm';
 import SimplePageHeader from '../components/content/SimplePageHeader';
 import HoursBlock from '../components/content/HoursBlock';
-import ContactHeaderImg from '../images/contact-header.jpg';
 
 const ColumnContainer = styled.section`
 	display: flex;
@@ -54,13 +54,24 @@ const Link = styled.a`
 `;
 
 const Contact = () => {
+	const { contentfulAsset: ContactImage } = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "QjccnY0VxY38zIA0RHXJi" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="Contact" />
 			<SimplePageHeader
 				text="Let's Connect"
-				image={ContactHeaderImg}
-				imageAlt="Contact Us Image"
+				image={ContactImage.file.url}
+				imageAlt={ContactImage.title}
 			/>
 			<ColumnContainer>
 				<Column width="40%" padding="40px 40px 0 0">

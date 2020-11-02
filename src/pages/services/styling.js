@@ -8,7 +8,6 @@ import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ServiceInfoBlock from '../../components/content/ServiceInfoBlock';
 import { Button } from '../../components/elements/Button';
-import StylingHeaderImg from '../../images/styling-header.jpg';
 
 const MainContainer = styled.section`
 	display: flex;
@@ -29,37 +28,25 @@ const Disclaimer = styled.span`
 	margin-bottom: 40px;
 `;
 
-export const query = graphql`
-	{
-		allContentfulService(filter: { category: { eq: "Styling" } }) {
-			edges {
-				node {
-					id
-					name
-					description {
-						description
-					}
-					price
-					estTime
-				}
-			}
-		}
-	}
-`;
-
-const Styling = ({ data }) => {
+const Styling = ({ stylingHeaderImage, stylingServices }) => {
+	console.log(stylingHeaderImage);
+	console.log(stylingServices);
 	return (
 		<StandardPage>
 			<SEO title="Styling Services" />
-			<SimplePageHeader text="Styling" image={StylingHeaderImg} />
+			<SimplePageHeader
+				text="Styling"
+				image={stylingHeaderImage.file.url}
+				imageAlt={stylingHeaderImage.title}
+			/>
 			<MainContainer>
-				{data.allContentfulService.edges.map(({ node }) => (
+				{stylingServices.edges.map(service => (
 					<ServiceInfoBlock
-						key={node.id}
-						title={node.name}
-						price={node.price}
-						description={node.description.description}
-						time={node.estTime && node.estTime}
+						key={service.id}
+						title={service.name}
+						price={service.price}
+						description={service.description.description}
+						time={service.estTime && service.estTime}
 					/>
 				))}
 				<Disclaimer>
@@ -75,7 +62,36 @@ const Styling = ({ data }) => {
 };
 
 Styling.propTypes = {
-	data: PropTypes.object,
+	stylingServices: PropTypes.object,
+	stylingHeaderImage: PropTypes.object,
 };
+
+export const query = graphql`
+	query {
+		stylingServices: allContentfulService(
+			filter: { category: { eq: "Styling" } }
+		) {
+			edges {
+				node {
+					id
+					name
+					description {
+						description
+					}
+					price
+					estTime
+				}
+			}
+		}
+		stylingHeaderImage: contentfulAsset(
+			contentful_id: { eq: "31MOZkz0eaWEOOWQk8xBvd" }
+		) {
+			file {
+				url
+			}
+			title
+		}
+	}
+`;
 
 export default Styling;

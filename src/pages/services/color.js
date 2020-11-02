@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import SEO from '../../components/seo';
 import StandardPage from '../../components/layouts/StandardPage';
 import SimplePageHeader from '../../components/content/SimplePageHeader';
 import ServiceInfoBlock from '../../components/content/ServiceInfoBlock';
 import { Button } from '../../components/elements/Button';
-import ColorHeaderImg from '../../images/color-header.jpg';
 
 const stylingData = [
 	{
@@ -86,10 +85,25 @@ const Disclaimer = styled.span`
 `;
 
 const Color = () => {
+	const { contentfulAsset: ColorHeaderImg } = useStaticQuery(graphql`
+		{
+			contentfulAsset(contentful_id: { eq: "6VbBz1yDclX2CgPEIGf542" }) {
+				file {
+					url
+				}
+				title
+			}
+		}
+	`);
+
 	return (
 		<StandardPage>
 			<SEO title="Color Services" />
-			<SimplePageHeader text="Color" image={ColorHeaderImg} />
+			<SimplePageHeader
+				text="Color"
+				image={ColorHeaderImg.file.url}
+				imageAlt={ColorHeaderImg.title}
+			/>
 			<MainContainer>
 				{stylingData.map(style => (
 					<ServiceInfoBlock
