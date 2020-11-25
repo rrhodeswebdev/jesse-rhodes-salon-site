@@ -28,14 +28,10 @@ module.exports = {
 			},
 		},
 		{
-			resolve: 'gatsby-plugin-prefetch-google-fonts',
+			resolve: 'gatsby-plugin-google-fonts',
 			options: {
-				fonts: [
-					{
-						family: 'Lato',
-						variants: ['300', '400', '700'],
-					},
-				],
+				fonts: ['Lato:300,400,500'],
+				display: 'swap',
 			},
 		},
 		{
