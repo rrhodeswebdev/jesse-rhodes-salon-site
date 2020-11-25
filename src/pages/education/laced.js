@@ -108,7 +108,9 @@ const A = styled.a`
 
 export const query = graphql`
 	query {
-		lacedClasses: allContentfulLacedClass {
+		lacedClasses: allContentfulLacedClass(
+			sort: { fields: classDate, order: ASC }
+		) {
 			edges {
 				node {
 					contentful_id
