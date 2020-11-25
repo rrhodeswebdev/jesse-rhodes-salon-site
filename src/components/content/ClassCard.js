@@ -121,7 +121,7 @@ const ClassCard = props => {
 					</Span>
 					<Span size="18px">
 						<Icon icon={faCut} />
-						<strong>Salon: </strong>
+						<strong>Venue: </strong>
 						{salon}
 					</Span>
 					<Span size="18px" marginBottom="20px">
