@@ -43,7 +43,7 @@
     "yup": "0.29.1"
   },
   "devDependencies": {
-    "cross-env": "7.0.2",
+    "cross-env": "7.0.3",
     "prettier": "2.0.4"
   },
   "license": "MIT",
