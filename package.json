@@ -28,7 +28,7 @@
     "gatsby-source-contentful": "2.3.40",
     "gatsby-source-filesystem": "2.2.5",
     "gatsby-transformer-sharp": "2.4.7",
-    "gsap": "3.2.6",
+    "gsap": "3.6.0",
     "moment": "2.27.0",
     "prop-types": "15.7.2",
     "react": "16.13.1",
