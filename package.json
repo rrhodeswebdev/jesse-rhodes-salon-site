@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "cross-env": "7.0.3",
-    "prettier": "2.0.4"
+    "prettier": "2.3.0"
   },
   "license": "MIT",
   "scripts": {
