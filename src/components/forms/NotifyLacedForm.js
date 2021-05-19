@@ -65,9 +65,10 @@ const schema = yup.object().shape({
 
 const NotifyLacedForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, reset, errors } = useForm({
+	const { register, handleSubmit, reset, formState } = useForm({
 		resolver: yupResolver(schema),
 	});
+	const { errors } = formState;
 	const formId = '1850e728-5ab6-4089-b6a9-4c79a2423994';
 	const context = {
 		pageUri: 'https://jesserhodes.style/education/laced',
@@ -89,16 +90,12 @@ const NotifyLacedForm = () => {
 			<FormGroup>
 				<Label htmlFor="firstName">First Name</Label>
 				<Input type="text" ref={register} name="firstname" />
-				{errors.firstname && (
-					<ErrorText>{errors.firstname.message}</ErrorText>
-				)}
+				{errors.firstname && <ErrorText>{errors.firstname.message}</ErrorText>}
 			</FormGroup>
 			<FormGroup>
 				<Label htmlFor="firstName">Last Name</Label>
 				<Input type="text" ref={register} name="lastname" />
-				{errors.lastname && (
-					<ErrorText>{errors.lastname.message}</ErrorText>
-				)}
+				{errors.lastname && <ErrorText>{errors.lastname.message}</ErrorText>}
 			</FormGroup>
 			<FormGroup>
 				<Label htmlFor="firstName">Email</Label>
@@ -111,10 +108,9 @@ const NotifyLacedForm = () => {
 			<FormGroup>
 				<FormText>
 					<em>
-						*Jesse Rhodes needs the contact information you provide
-						to her to contact you about the products and services
-						offered. You may unsubscribe from these communications
-						at any time.
+						*Jesse Rhodes needs the contact information you provide to her to
+						contact you about the products and services offered. You may
+						unsubscribe from these communications at any time.
 					</em>
 				</FormText>
 			</FormGroup>

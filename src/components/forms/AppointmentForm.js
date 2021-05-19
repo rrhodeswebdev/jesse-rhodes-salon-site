@@ -122,9 +122,10 @@ const schema = yup.object().shape({
 
 const AppointmentForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, errors, reset, control, watch } = useForm({
+	const { register, handleSubmit, formState, reset, control, watch } = useForm({
 		resolver: yupResolver(schema),
 	});
+	const { errors } = formState;
 
 	const selectedDate = watch('appointment_request_date') || new Date();
 

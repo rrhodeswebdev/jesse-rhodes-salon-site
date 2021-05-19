@@ -89,7 +89,8 @@ const FormText = styled.span`
 
 const ContactForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, errors, reset } = useForm();
+	const { register, handleSubmit, formState, reset } = useForm();
+	const { errors } = formState;
 	const formId = 'a8dbe954-c457-41f1-8292-fd3b55fef13c';
 	const context = {
 		pageUri: 'https://jesserhodes.style/contact',
