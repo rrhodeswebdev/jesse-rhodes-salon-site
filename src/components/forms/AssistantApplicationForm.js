@@ -119,7 +119,7 @@ const schema = yup.object().shape({
 
 const MentorshipApplicationForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, reset, errors, watch } = useForm({
+	const { register, handleSubmit, reset, formState, watch } = useForm({
 		resolver: yupResolver(schema),
 	});
 	const { styling_experience } = watch();
@@ -145,26 +145,32 @@ const MentorshipApplicationForm = () => {
 				<InputGroup width="50%">
 					<Label>First Name</Label>
 					<Input type="text" ref={register} name="firstname" />
-					{errors.firstname && (
-						<ErrorText>{errors.firstname.message}</ErrorText>
+					{formState.errors.firstname && (
+						<ErrorText>{formState.errors.firstname.message}</ErrorText>
 					)}
 				</InputGroup>
 				<InputGroup width="50%">
 					<Label>Last Name</Label>
 					<Input type="text" ref={register} name="lastname" />
-					{errors.lastname && <ErrorText>{errors.lastname.message}</ErrorText>}
+					{formState.errors.lastname && (
+						<ErrorText>{formState.errors.lastname.message}</ErrorText>
+					)}
 				</InputGroup>
 			</Column>
 			<Column>
 				<InputGroup width="50%">
 					<Label>Email</Label>
 					<Input type="email" ref={register} name="email" />
-					{errors.email && <ErrorText>{errors.email.message}</ErrorText>}
+					{formState.errors.email && (
+						<ErrorText>{formState.errors.email.message}</ErrorText>
+					)}
 				</InputGroup>
 				<InputGroup width="50%">
 					<Label>Phone Number</Label>
 					<Input type="tel" name="phone" ref={register} />
-					{errors.phone && <ErrorText>{errors.phone.message}</ErrorText>}
+					{formState.errors.phone && (
+						<ErrorText>{formState.errors.phone.message}</ErrorText>
+					)}
 				</InputGroup>
 			</Column>
 			<Column>
@@ -175,8 +181,8 @@ const MentorshipApplicationForm = () => {
 						<option>Current Student</option>
 						<option>Licensed Stylist</option>
 					</Select>
-					{errors.styling_experience && (
-						<ErrorText>{errors.styling_experience.message}</ErrorText>
+					{formState.errors.styling_experience && (
+						<ErrorText>{formState.errors.styling_experience.message}</ErrorText>
 					)}
 				</InputGroup>
 			</Column>
@@ -191,8 +197,10 @@ const MentorshipApplicationForm = () => {
 							<option>3-5 years</option>
 							<option>5+ years</option>
 						</Select>
-						{errors.years_of_experience && (
-							<ErrorText>{errors.years_of_experience.message}</ErrorText>
+						{formState.errors.years_of_experience && (
+							<ErrorText>
+								{formState.errors.years_of_experience.message}
+							</ErrorText>
 						)}
 					</InputGroup>
 				</Column>
@@ -201,8 +209,8 @@ const MentorshipApplicationForm = () => {
 				<InputGroup>
 					<Label>Tell me about yourself</Label>
 					<TextArea name="about_yourself" ref={register} />
-					{errors.about_yourself && (
-						<ErrorText>{errors.about_yourself.message}</ErrorText>
+					{formState.errors.about_yourself && (
+						<ErrorText>{formState.errors.about_yourself.message}</ErrorText>
 					)}
 				</InputGroup>
 			</Column>
@@ -210,8 +218,10 @@ const MentorshipApplicationForm = () => {
 				<InputGroup>
 					<Label>Why are you interested in this program?</Label>
 					<TextArea name="why_mentorship_program" ref={register} />
-					{errors.why_mentorship_program && (
-						<ErrorText>{errors.why_mentorship_program.message}</ErrorText>
+					{formState.errors.why_mentorship_program && (
+						<ErrorText>
+							{formState.errors.why_mentorship_program.message}
+						</ErrorText>
 					)}
 				</InputGroup>
 			</Column>
