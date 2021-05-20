@@ -5,7 +5,7 @@ import { Button } from '../elements/Button';
 import { submitFormData } from '../../utils/forms';
 import FormSuccess from '../content/FormSuccess';
 import moment from 'moment';
-import { yupResolver } from '@hookform/resolvers';
+import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import DatePicker from 'react-datepicker';
 

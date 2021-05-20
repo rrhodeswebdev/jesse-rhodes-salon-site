@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { submitFormData } from '../../utils/forms';
 import FormSuccess from '../content/FormSuccess';
@@ -119,10 +119,15 @@ const schema = yup.object().shape({
 
 const MentorshipApplicationForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, reset, formState, watch } = useForm({
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+		watch,
+	} = useForm({
 		resolver: yupResolver(schema),
 	});
-	const { errors } = formState;
 	const { styling_experience } = watch();
 	const formId = 'e2434168-74e1-4389-8bf1-d2fae1d0b6c7';
 	const context = {
@@ -145,33 +150,33 @@ const MentorshipApplicationForm = () => {
 			<Column>
 				<InputGroup width="50%">
 					<Label>First Name</Label>
-					<Input type="text" ref={register} name="firstname" />
+					<Input type="text" {...register('firstname')} />
 					{errors.firstname && (
 						<ErrorText>{errors.firstname.message}</ErrorText>
 					)}
 				</InputGroup>
 				<InputGroup width="50%">
 					<Label>Last Name</Label>
-					<Input type="text" ref={register} name="lastname" />
+					<Input type="text" {...register('lastname')} />
 					{errors.lastname && <ErrorText>{errors.lastname.message}</ErrorText>}
 				</InputGroup>
 			</Column>
 			<Column>
 				<InputGroup width="50%">
 					<Label>Email</Label>
-					<Input type="email" ref={register} name="email" />
+					<Input type="email" {...register('email')} />
 					{errors.email && <ErrorText>{errors.email.message}</ErrorText>}
 				</InputGroup>
 				<InputGroup width="50%">
 					<Label>Phone Number</Label>
-					<Input type="tel" name="phone" ref={register} />
+					<Input type="tel" {...register('phone')} />
 					{errors.phone && <ErrorText>{errors.phone.message}</ErrorText>}
 				</InputGroup>
 			</Column>
 			<Column>
 				<InputGroup>
 					<Label>Styling Experience</Label>
-					<Select name="styling_experience" ref={register} defaultValue="">
+					<Select {...register('styling_experience')} defaultValue="">
 						<option disabled></option>
 						<option>Current Student</option>
 						<option>Licensed Stylist</option>
@@ -185,7 +190,7 @@ const MentorshipApplicationForm = () => {
 				<Column>
 					<InputGroup>
 						<Label>Years of Experience</Label>
-						<Select name="years_of_experience" ref={register} defaultValue="">
+						<Select {...register('years_of_experience')} defaultValue="">
 							<option disabled></option>
 							<option>0-1 years</option>
 							<option>1-3 years</option>
@@ -201,7 +206,7 @@ const MentorshipApplicationForm = () => {
 			<Column>
 				<InputGroup>
 					<Label>Tell me about yourself</Label>
-					<TextArea name="about_yourself" ref={register} />
+					<TextArea {...register('about_yourself')} />
 					{errors.about_yourself && (
 						<ErrorText>{errors.about_yourself.message}</ErrorText>
 					)}
@@ -210,7 +215,7 @@ const MentorshipApplicationForm = () => {
 			<Column>
 				<InputGroup>
 					<Label>Why are you interested in this program?</Label>
-					<TextArea name="why_mentorship_program" ref={register} />
+					<TextArea {...register('why_mentorship_program')} />
 					{errors.why_mentorship_program && (
 						<ErrorText>{errors.why_mentorship_program.message}</ErrorText>
 					)}
@@ -218,7 +223,9 @@ const MentorshipApplicationForm = () => {
 			</Column>
 			<Column>
 				<InputGroup>
-					<Button margin="10px 0 0">Submit</Button>
+					<Button margin="10px 0 0" type="submit">
+						Submit
+					</Button>
 				</InputGroup>
 			</Column>
 			<Column>
