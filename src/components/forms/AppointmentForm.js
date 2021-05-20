@@ -122,13 +122,17 @@ const schema = yup.object().shape({
 
 const AppointmentForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, formState, reset, control, watch } = useForm({
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+		control,
+		watch,
+	} = useForm({
 		resolver: yupResolver(schema),
 	});
-	const { errors } = formState;
-
 	const selectedDate = watch('appointment_request_date') || new Date();
-
 	const formId = '6336fa11-d394-4327-9735-6dfe287c716c';
 	const context = {
 		pageUri: 'https://jesserhodes.style/booking/appointment',
@@ -184,22 +188,22 @@ const AppointmentForm = () => {
 			{successMessage && <FormSuccess message={successMessage} />}
 			<InputGroup width="50%" marginRight="10px">
 				<Label>First Name</Label>
-				<Input type="text" name="firstname" ref={register} />
+				<Input type="text" {...register('firstname')} />
 				{errors.firstname && <ErrorText>{errors.firstname.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup width="50%" marginLeft="10px">
 				<Label>Last Name</Label>
-				<Input type="text" name="lastname" ref={register} />
+				<Input type="text" {...register('lastname')} />
 				{errors.lastname && <ErrorText>{errors.lastname.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup width="50%" marginRight="10px">
 				<Label>Email</Label>
-				<Input type="email" name="email" ref={register} />
+				<Input type="email" {...register('email')} />
 				{errors.email && <ErrorText>{errors.email.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup width="50%" marginLeft="10px">
 				<Label>Phone Number</Label>
-				<Input type="tel" name="phone" ref={register} />
+				<Input type="tel" {...register('phone')} />
 				{errors.phone && <ErrorText>{errors.phone.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup width="33.33%" marginRight="10px">
@@ -207,7 +211,7 @@ const AppointmentForm = () => {
 				<Controller
 					name="appointment_request_date"
 					control={control}
-					render={({ value, onChange, onBlur }) => (
+					render={({ field: { value, onChange, onBlur } }) => (
 						<CustomDatePicker
 							minDate={moment().toDate()}
 							filterDate={isWorkday}
@@ -226,7 +230,7 @@ const AppointmentForm = () => {
 				<Controller
 					name="appointment_request_time"
 					control={control}
-					render={({ value, onChange, onBlur }) => (
+					render={({ field: { value, onChange, onBlur } }) => (
 						<CustomDatePicker
 							showTimeSelect
 							showTimeSelectOnly
@@ -249,7 +253,7 @@ const AppointmentForm = () => {
 				<Label>Service</Label>
 				<Select
 					name="appointment_request_service"
-					ref={register({ required: true })}
+					{...register('appointment_request_service', { required: true })}
 				>
 					<option defaultValue />
 					<option value="color">Color</option>
@@ -262,7 +266,7 @@ const AppointmentForm = () => {
 			</InputGroup>
 			<InputGroup>
 				<Label>Message</Label>
-				<TextArea name="message" rows="8" ref={register} />
+				<TextArea rows="8" {...register('message')} />
 				{errors.message && <ErrorText>{errors.message.message}</ErrorText>}
 			</InputGroup>
 			<InputGroup>

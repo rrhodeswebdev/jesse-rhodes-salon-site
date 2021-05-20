@@ -65,10 +65,14 @@ const schema = yup.object().shape({
 
 const NotifyLacedForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, reset, formState } = useForm({
+	const {
+		register,
+		handleSubmit,
+		reset,
+		formState: { errors },
+	} = useForm({
 		resolver: yupResolver(schema),
 	});
-	const { errors } = formState;
 	const formId = '1850e728-5ab6-4089-b6a9-4c79a2423994';
 	const context = {
 		pageUri: 'https://jesserhodes.style/education/laced',
@@ -89,17 +93,17 @@ const NotifyLacedForm = () => {
 			<FormHeader>Send Me Updates</FormHeader>
 			<FormGroup>
 				<Label htmlFor="firstName">First Name</Label>
-				<Input type="text" ref={register} name="firstname" />
+				<Input type="text" {...register('firstname')} />
 				{errors.firstname && <ErrorText>{errors.firstname.message}</ErrorText>}
 			</FormGroup>
 			<FormGroup>
 				<Label htmlFor="firstName">Last Name</Label>
-				<Input type="text" ref={register} name="lastname" />
+				<Input type="text" {...register('lastname')} />
 				{errors.lastname && <ErrorText>{errors.lastname.message}</ErrorText>}
 			</FormGroup>
 			<FormGroup>
 				<Label htmlFor="firstName">Email</Label>
-				<Input type="email" ref={register} name="email" />
+				<Input type="email" {...register('email')} />
 				{errors.email && <ErrorText>{errors.email.message}</ErrorText>}
 			</FormGroup>
 			<FormGroup>

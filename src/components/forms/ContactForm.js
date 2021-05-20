@@ -89,8 +89,12 @@ const FormText = styled.span`
 
 const ContactForm = () => {
 	const [successMessage, setSuccessMessage] = useState('');
-	const { register, handleSubmit, formState, reset } = useForm();
-	const { errors } = formState;
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm();
 	const formId = 'a8dbe954-c457-41f1-8292-fd3b55fef13c';
 	const context = {
 		pageUri: 'https://jesserhodes.style/contact',
@@ -110,32 +114,24 @@ const ContactForm = () => {
 			{successMessage && <FormSuccess message={successMessage} />}
 			<Group>
 				<Label htmlFor="email">Email</Label>
-				<Input type="text" name="email" ref={register({ required: true })} />
+				<Input type="text" {...register('email', { required: true })} />
 				{errors.email && <ErrorText>This field is required</ErrorText>}
 			</Group>
 			<ColContainer>
 				<Group width="50%" padding="0 5px 0 0">
 					<Label htmlFor="firstname">First Name</Label>
-					<Input
-						type="text"
-						name="firstname"
-						ref={register({ required: true })}
-					/>
+					<Input type="text" {...register('firstname', { required: true })} />
 					{errors.firstname && <ErrorText>This field is required</ErrorText>}
 				</Group>
 				<Group width="50%" padding="0 0 0 5px">
 					<Label htmlFor="lastname">Last Name</Label>
-					<Input
-						type="text"
-						name="lastname"
-						ref={register({ required: true })}
-					/>
+					<Input type="text" {...register('lastname', { required: true })} />
 					{errors.lastname && <ErrorText>This field is required</ErrorText>}
 				</Group>
 			</ColContainer>
 			<Group>
 				<Label htmlFor="reason_of_contact">Reason of Contact</Label>
-				<Select name="reason_of_contact" ref={register({ required: true })}>
+				<Select {...register('reason_of_contact', { required: true })}>
 					<option value="" defaultValue></option>
 					<option value="Appointments">Appointments</option>
 					<option value="Services">Services</option>
@@ -149,11 +145,10 @@ const ContactForm = () => {
 			<Group>
 				<Label htmlFor="message">How can I help you?</Label>
 				<TextArea
-					name="message"
 					id=""
 					cols="30"
 					rows="10"
-					ref={register({ required: true })}
+					{...register('message', { required: true })}
 				></TextArea>
 				{errors.message && <ErrorText>This field is required</ErrorText>}
 			</Group>
