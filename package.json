@@ -11,7 +11,7 @@
     "@fortawesome/react-fontawesome": "0.1.14",
     "@hookform/resolvers": "2.6.0",
     "axios": "0.21.1",
-    "babel-plugin-styled-components": "1.12.1",
+    "babel-plugin-styled-components": "1.13.1",
     "clear": "0.1.0",
     "dotenv": "10.0.0",
     "gatsby": "3.8.1",
